@@ -3,8 +3,6 @@ import { Animated, Image, useWindowDimensions } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from 'react-native-screens/native-stack'
 import { useTheme } from 'styled-components/native'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import normalize from 'react-native-normalize'
 
 import Assets from 'src/assets'
 import { Flex, Icon, Text } from 'src/components/atoms'
@@ -13,11 +11,7 @@ import { useGeneralContext } from 'src/contexts/general'
 import { RootStackNavigator } from 'src/navigator'
 import { hexToRgba, resize } from 'src/utils'
 
-const sizes = [
-  resize({ base: 'height', height: 264, size: 220, width: 312 }),
-  resize({ base: 'height', height: 270, size: 220, width: 296 }),
-  resize({ base: 'height', height: 328, size: 220, width: 317 })
-]
+import * as Styled from './styled'
 
 export default function (): JSX.Element {
   const generalContext = useGeneralContext()
@@ -30,47 +24,71 @@ export default function (): JSX.Element {
 
   const theme = useTheme()
 
-  const data = useMemo(
-    () => [
-      {
-        bg: hexToRgba(theme.colors.primary, 0.2),
-        description:
-          'Create, save, manage your bookmark, images, link, or documents just in one app.',
-        image: {
-          height: sizes[0].height,
-          source: Assets.images.onboarding1,
-          width: sizes[0].width
-        },
-        key: '1',
-        title: 'Simple way to Manage'
+  const data = useMemo(() => {
+    const items = []
+
+    const imageSize1 = resize({
+      base: 'height',
+      height: 264,
+      size: 220,
+      width: 312
+    })
+    const item1 = {
+      bg: hexToRgba(theme.colors.primary, 0.2),
+      description:
+        'Create, save, manage your bookmark, images, link, or documents just in one app.',
+      image: {
+        height: imageSize1.height,
+        source: Assets.images.onboarding1,
+        width: imageSize1.width
       },
-      {
-        bg: hexToRgba(theme.colors.blue, 0.2),
-        description:
-          'Say no to mess with grouped folders, add your tags, or just search with advanced filters.',
-        image: {
-          height: sizes[1].height,
-          source: Assets.images.onboarding2,
-          width: sizes[1].width
-        },
-        key: '2',
-        title: 'Organize is easy'
+      key: '1',
+      title: 'Simple way to Manage'
+    }
+    items.push(item1)
+
+    const imageSize2 = resize({
+      base: 'height',
+      height: 270,
+      size: 220,
+      width: 296
+    })
+    const item2 = {
+      bg: hexToRgba(theme.colors.blue, 0.2),
+      description:
+        'Say no to mess with grouped folders, add your tags, or just search with advanced filters.',
+      image: {
+        height: imageSize2.height,
+        source: Assets.images.onboarding2,
+        width: imageSize2.width
       },
-      {
-        bg: hexToRgba(theme.colors.pink, 0.2),
-        description:
-          "We believe privacy is a right. We won't sell your data, no ads, ever.",
-        image: {
-          height: sizes[2].height,
-          source: Assets.images.onboarding3,
-          width: sizes[2].width
-        },
-        key: '3',
-        title: 'Safe and Secure'
-      }
-    ],
-    []
-  )
+      key: '2',
+      title: 'Organize is easy'
+    }
+    items.push(item2)
+
+    const imageSize3 = resize({
+      base: 'height',
+      height: 328,
+      size: 220,
+      width: 317
+    })
+    const item3 = {
+      bg: hexToRgba(theme.colors.pink, 0.2),
+      description:
+        "We believe privacy is a right. We won't sell your data, no ads, ever.",
+      image: {
+        height: imageSize3.height,
+        source: Assets.images.onboarding3,
+        width: imageSize3.width
+      },
+      key: '3',
+      title: 'Safe and Secure'
+    }
+    items.push(item3)
+
+    return items
+  }, [theme.colors.blue, theme.colors.pink, theme.colors.primary])
 
   const windowDimensions = useWindowDimensions()
 
@@ -92,7 +110,7 @@ export default function (): JSX.Element {
         flex: 1
       }}
     >
-      <SafeAreaView edges={['top']} style={{ flex: 1 }}>
+      <Styled.OnboardingContainer edges={['top']}>
         <Flex flex paddingTop="medium">
           <Flex alignItems="center">
             <Icon.Logo color={generalContext.darkMode ? 'white' : 'primary'} />
@@ -140,7 +158,7 @@ export default function (): JSX.Element {
           </Flex>
           <Flex flexDirection="row" padding="medium">
             {data.map((item, i) => (
-              <Animated.View
+              <Styled.Indicator
                 key={item.key}
                 style={{
                   backgroundColor: scrollX.interpolate({
@@ -156,9 +174,6 @@ export default function (): JSX.Element {
                     ],
                     extrapolate: 'clamp'
                   }),
-                  borderRadius: 6,
-                  height: 6,
-                  marginRight: theme.spacing.tiny,
                   transform: [
                     {
                       scale: scrollX.interpolate({
@@ -171,22 +186,14 @@ export default function (): JSX.Element {
                         extrapolate: 'clamp'
                       })
                     }
-                  ],
-                  width: 6
+                  ]
                 }}
               />
             ))}
           </Flex>
         </Flex>
-      </SafeAreaView>
-      <SafeAreaView
-        edges={['bottom']}
-        style={{
-          backgroundColor: theme.colors.systemBackgroundPrimary,
-          borderTopLeftRadius: normalize(18),
-          borderTopRightRadius: normalize(18)
-        }}
-      >
+      </Styled.OnboardingContainer>
+      <Styled.ButtonsContainer edges={['bottom']}>
         <Flex paddingHorizontal="medium" paddingVertical="large">
           <Flex paddingBottom="small">
             <Button
@@ -204,7 +211,7 @@ export default function (): JSX.Element {
             title="Register"
           />
         </Flex>
-      </SafeAreaView>
+      </Styled.ButtonsContainer>
     </Animated.View>
   )
 }
