@@ -9,6 +9,7 @@ import CloudCompleted from './sources/cloud-completed'
 import CubeAdd from './sources/cube-add'
 import Cube from './sources/cube'
 import Edit from './sources/edit'
+import EyeClosed from './sources/eye-closed'
 import Eye from './sources/eye'
 import FileDocument from './sources/file-document'
 import FileImage from './sources/file-image'
@@ -48,6 +49,7 @@ export default {
   CubeAdd,
   Cube,
   Edit,
+  EyeClosed,
   Eye,
   FileDocument,
   FileImage,

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import { Animated, useWindowDimensions } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from 'react-native-screens/native-stack'
@@ -28,12 +28,6 @@ export default function (): JSX.Element {
   const theme = useTheme()
 
   const windowDimensions = useWindowDimensions()
-
-  useEffect(() => {
-    navigation.setOptions({
-      headerShown: false
-    })
-  }, [navigation])
 
   return (
     <Styled.Container
@@ -74,7 +68,7 @@ export default function (): JSX.Element {
           <Flex paddingBottom="small">
             <Button
               onPress={() => {
-                //
+                navigation.navigate('LogIn')
               }}
               title="Log In"
               type="secondary"

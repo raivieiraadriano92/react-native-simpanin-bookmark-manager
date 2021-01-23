@@ -7,10 +7,16 @@ import { Flex, Icon, Text } from 'src/components/atoms'
 type Props = {
   goBack?(): void
   right?: ReactNode
+  subtitle?: string
   title?: string
 }
 
-export default function ({ goBack, right, title }: Props): JSX.Element {
+export default function ({
+  goBack,
+  right,
+  subtitle,
+  title
+}: Props): JSX.Element {
   return (
     <SafeAreaView edges={['top']}>
       <Flex alignItems="center" flexDirection="row" padding="medium">
@@ -21,13 +27,23 @@ export default function ({ goBack, right, title }: Props): JSX.Element {
             </TouchableOpacity>
           </Flex>
         )}
-        {!!title && (
+        {!!title && !subtitle && (
           <Text flexWrap="wrap" type="h3">
             {title}
           </Text>
         )}
         {right}
       </Flex>
+      {!!subtitle && (
+        <Flex padding="medium">
+          {!!title && <Text type="h3">{title}</Text>}
+          {!!subtitle && (
+            <Flex paddingTop="small">
+              <Text type="body2">{subtitle}</Text>
+            </Flex>
+          )}
+        </Flex>
+      )}
     </SafeAreaView>
   )
 }
