@@ -9,6 +9,10 @@ export const ButtonsContainer = styled(SafeAreaView)`
   border-top-right-radius: ${normalize(18)}px;
 `
 
+export const Container = styled(Animated.View)`
+  flex: 1;
+`
+
 export const Indicator = styled(Animated.View)`
   border-radius: ${normalize(6)}px;
   height: ${normalize(6)}px;
