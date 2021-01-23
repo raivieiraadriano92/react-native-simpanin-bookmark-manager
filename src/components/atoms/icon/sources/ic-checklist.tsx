@@ -2,17 +2,16 @@ import React from 'react'
 import Svg, { Circle, Path } from 'react-native-svg'
 import { useTheme } from 'styled-components/native'
 
-import { hexToRgba } from 'src/utils'
+import { hexToRgba, resize } from 'src/utils'
 
 import { Props } from '..'
-import { resize } from '../utils'
 
 export default function ({
   alpha = 1,
   color = 'text',
   size = 24
 }: Props): JSX.Element {
-  const { height, width } = resize({ height: 19.94, size, width: 19.94 })
+  const { height, width } = resize({ height: 24, size, width: 24 })
 
   const theme = useTheme()
 

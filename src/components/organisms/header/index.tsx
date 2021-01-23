@@ -17,7 +17,7 @@ export default function ({ goBack, right, title }: Props): JSX.Element {
         {!!goBack && (
           <Flex marginRight="small">
             <TouchableOpacity onPress={goBack}>
-              <Icon.ArrowBack alpha={0.6} />
+              <Icon.ArrowLeft alpha={0.6} />
             </TouchableOpacity>
           </Flex>
         )}

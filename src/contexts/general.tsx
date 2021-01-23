@@ -26,7 +26,8 @@ export function useGeneralContext(): GeneralContextValues {
 
 export default function ({ children }: Props): JSX.Element {
   const [darkMode, setDarkMode] = useState(
-    Appearance.getColorScheme() === 'dark'
+    // Appearance.getColorScheme() === 'dark'
+    true
   )
 
   const toggleDarkMode = useCallback(async () => {

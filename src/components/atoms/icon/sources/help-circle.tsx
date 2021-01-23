@@ -1,5 +1,5 @@
 import React from 'react'
-import Svg, { Circle, Path } from 'react-native-svg'
+import Svg, { Path } from 'react-native-svg'
 import { useTheme } from 'styled-components/native'
 
 import { hexToRgba, resize } from 'src/utils'
@@ -17,15 +17,15 @@ export default function ({
 
   return (
     <Svg {...{ height, width }} viewBox="0 0 24 24" fill="none">
-      <Circle
-        cx={12}
-        cy={12}
-        r={7.25}
+      <Path
+        d="M12.5 21a8.5 8.5 0 100-17 8.5 8.5 0 000 17z"
         stroke={hexToRgba(theme.colors[color], alpha)}
         strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <Path
-        d="M12 8.5V13M12 15.5v-.25"
+        d="M10.027 9.95a2.55 2.55 0 014.955.85c0 1.7-2.55 2.55-2.55 2.55M12.5 16.75h.009"
         stroke={hexToRgba(theme.colors[color], alpha)}
         strokeWidth={1.5}
         strokeLinecap="round"

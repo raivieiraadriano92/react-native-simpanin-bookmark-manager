@@ -4,7 +4,7 @@ import { enableScreens } from 'react-native-screens'
 import { createNativeStackNavigator } from 'react-native-screens/native-stack'
 import { useTheme } from 'styled-components/native'
 
-import { Home, MakeSomething } from 'src/components/pages'
+import { Home, MakeSomething, Onboarding } from 'src/components/pages'
 import { styles as TextStyles } from 'src/components/atoms/text'
 
 export type RootStackNavigator = {
@@ -22,6 +22,7 @@ export default function (): JSX.Element {
   return (
     <NavigationContainer>
       <Stack.Navigator
+        initialRouteName="Onboarding"
         screenOptions={{
           contentStyle: {
             backgroundColor: theme.colors.systemBackgroundPrimary
@@ -41,6 +42,7 @@ export default function (): JSX.Element {
       >
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="MakeSomething" component={MakeSomething} />
+        <Stack.Screen name="Onboarding" component={Onboarding} />
       </Stack.Navigator>
     </NavigationContainer>
   )

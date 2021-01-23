@@ -21,14 +21,18 @@ const spacing: DefaultTheme['spacing'] = {
 
 const lightColors: DefaultTheme['colors'] = {
   black: '#000',
+  blue: '#0099FF',
   error: '#FE5454',
+  pink: '#FFB8C6',
   primary: '#5460FE',
+  purple: '#BF84FF',
   success: '#6CDD8B',
   systemBackgroundPrimary: '#FFF',
   systemBackgroundSecondary: '#F5F8FD',
   systemLine: '#EEF2F9',
   text: '#051E56',
   transparent: 'transparent',
+  yellow: '#FFD15F',
   white: '#FFF'
 }
 

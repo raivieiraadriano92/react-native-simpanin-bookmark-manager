@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
+import { Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from 'react-native-screens/native-stack'
 import { useTheme } from 'styled-components/native'
 
+import Assets from 'src/assets'
 import { Flex, Icon, Space, Text } from 'src/components/atoms'
 import { Button, Input, ScrollViewFaded } from 'src/components/molecules'
 import { useGeneralContext } from 'src/contexts/general'
 import { RootStackNavigator } from 'src/navigator'
-import { hexToRgba } from 'src/utils'
+import { hexToRgba, resize } from 'src/utils'
 
 export default function (): JSX.Element {
   const generalContext = useGeneralContext()
@@ -58,6 +60,29 @@ export default function (): JSX.Element {
             }}
             title={generalContext.darkMode ? 'Light' : 'Dark'}
           />
+          <Space size="large" />
+          <Flex alignItems="center">
+            <Image
+              source={Assets.images.mailConfirmation}
+              style={{ ...resize({ height: 280, width: 337, size: 300 }) }}
+            />
+            <Image
+              source={Assets.images.onboarding1}
+              style={{ ...resize({ height: 280, width: 337, size: 300 }) }}
+            />
+            <Image
+              source={Assets.images.onboarding2}
+              style={{ ...resize({ height: 280, width: 337, size: 300 }) }}
+            />
+            <Image
+              source={Assets.images.onboarding3}
+              style={{ ...resize({ height: 280, width: 337, size: 300 }) }}
+            />
+            <Image
+              source={Assets.images.upgrade}
+              style={{ ...resize({ height: 280, width: 337, size: 300 }) }}
+            />
+          </Flex>
           <Space size="large" />
           <Text type="h1">Headline 1</Text>
           <Text type="h2">Headline 2</Text>

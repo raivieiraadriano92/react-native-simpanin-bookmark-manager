@@ -1,24 +1,25 @@
 import normalize from 'react-native-normalize'
 
-type ResizeProps = {
+type Props = {
+  base?: 'height' | 'width'
   height: number
   size: number
   width: number
 }
 
-type ResizeReturn = Pick<ResizeProps, 'height' | 'width'>
+export default function ({
+  base,
+  height,
+  size,
+  width
+}: Props): Pick<Props, 'height' | 'width'> {
+  let newHeight = size
+  let newWidth = size
 
-export function resize({ height, size, width }: ResizeProps): ResizeReturn {
-  let newHeight
-  let newWidth
-
-  if (height === width) {
-    newHeight = size
-    newWidth = size
-  } else if (height > width) {
+  if (height > width || base === 'height') {
     newHeight = size
     newWidth = (size * width) / height
-  } else {
+  } else if (height < width || base === 'width') {
     newHeight = (size * height) / width
     newWidth = size
   }

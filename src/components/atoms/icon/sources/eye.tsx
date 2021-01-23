@@ -17,19 +17,17 @@ export default function ({
 
   return (
     <Svg {...{ height, width }} viewBox="0 0 24 24" fill="none">
-      <Circle
-        cx={12}
-        cy={12}
-        r={7.25}
+      <Path
+        d="M19 12c0 1-3 5-7 5s-7-4-7-5 3-5 7-5 7 4 7 5z"
         stroke={hexToRgba(theme.colors[color], alpha)}
         strokeWidth={1.5}
       />
-      <Path
-        d="M12 8.5V13M12 15.5v-.25"
+      <Circle
+        cx={12}
+        cy={12}
+        r={2}
         stroke={hexToRgba(theme.colors[color], alpha)}
         strokeWidth={1.5}
-        strokeLinecap="round"
-        strokeLinejoin="round"
       />
     </Svg>
   )
