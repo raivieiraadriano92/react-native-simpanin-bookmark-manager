@@ -35,10 +35,10 @@ export default function ({
         {right}
       </Flex>
       {!!subtitle && (
-        <Flex padding="medium">
+        <Flex paddingBottom="medium" paddingHorizontal="medium">
           {!!title && <Text type="h3">{title}</Text>}
           {!!subtitle && (
-            <Flex paddingTop="small">
+            <Flex paddingTop="tiny">
               <Text type="body2">{subtitle}</Text>
             </Flex>
           )}

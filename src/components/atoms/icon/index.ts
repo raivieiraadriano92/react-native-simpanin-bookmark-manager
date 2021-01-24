@@ -16,6 +16,7 @@ import FileImage from './sources/file-image'
 import FolderAdd from './sources/folder-add'
 import FolderSave from './sources/folder-save'
 import FolderUpload from './sources/folder-upload'
+import Google from './sources/google'
 import HelpCircle from './sources/help-circle'
 import Home from './sources/home'
 import ICChecklist from './sources/ic-checklist'
@@ -56,6 +57,7 @@ export default {
   FolderAdd,
   FolderSave,
   FolderUpload,
+  Google,
   HelpCircle,
   Home,
   ICChecklist,

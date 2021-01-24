@@ -13,7 +13,7 @@ import { hexToRgba } from 'src/utils'
 type LabelProps = Required<Pick<TextProps, 'alpha' | 'color'>>
 
 interface LeftRight {
-  ({ color }: LabelProps): ReactNode
+  (_: LabelProps): ReactNode
 }
 
 type Props = TextInputProps & {

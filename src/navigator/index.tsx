@@ -8,15 +8,17 @@ import {
   // Home,
   LogIn,
   // MakeSomething,
-  Onboarding
+  Onboarding,
+  Register
 } from 'src/components/pages'
 import { styles as TextStyles } from 'src/components/atoms/text'
 
 export type RootStackNavigator = {
-  Home: undefined
+  // Home: undefined
   LogIn: undefined
-  MakeSomething: undefined
+  // MakeSomething: undefined
   Onboarding: undefined
+  Register: undefined
 }
 
 enableScreens()
@@ -29,7 +31,7 @@ export default function (): JSX.Element {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="LogIn"
+        initialRouteName="Register"
         screenOptions={{
           contentStyle: {
             backgroundColor: theme.colors.systemBackgroundPrimary
@@ -42,6 +44,7 @@ export default function (): JSX.Element {
         <Stack.Screen name="LogIn" component={LogIn} />
         {/* <Stack.Screen name="MakeSomething" component={MakeSomething} /> */}
         <Stack.Screen name="Onboarding" component={Onboarding} />
+        <Stack.Screen name="Register" component={Register} />
       </Stack.Navigator>
     </NavigationContainer>
   )

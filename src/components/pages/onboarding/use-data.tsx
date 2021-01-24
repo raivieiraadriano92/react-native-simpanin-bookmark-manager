@@ -34,7 +34,7 @@ export default function (): Data[] {
         'Create, save, manage your bookmark, images, link, or documents just in one app.',
       image: {
         height: imageSize1.height,
-        source: Assets.images.onboarding1,
+        source: Assets.images.onboarding1.source,
         width: imageSize1.width
       },
       key: '1',
@@ -54,7 +54,7 @@ export default function (): Data[] {
         'Say no to mess with grouped folders, add your tags, or just search with advanced filters.',
       image: {
         height: imageSize2.height,
-        source: Assets.images.onboarding2,
+        source: Assets.images.onboarding2.source,
         width: imageSize2.width
       },
       key: '2',
@@ -74,7 +74,7 @@ export default function (): Data[] {
         "We believe privacy is a right. We won't sell your data, no ads, ever.",
       image: {
         height: imageSize3.height,
-        source: Assets.images.onboarding3,
+        source: Assets.images.onboarding3.source,
         width: imageSize3.width
       },
       key: '3',

@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react'
+import React, { ReactNode, useCallback, useMemo } from 'react'
 import {
   Pressable,
   PressableProps,
@@ -9,11 +9,18 @@ import normalize from 'react-native-normalize'
 import Color from 'color'
 
 import { Flex, Text } from 'src/components/atoms'
+import { Props as TextProps } from 'src/components/atoms/text'
 import { hexToRgba } from 'src/utils'
+
+interface LeftRight {
+  (_: Required<Pick<TextProps, 'alpha' | 'color'>>): ReactNode
+}
 
 type Type = 'primary' | 'secondary' | 'tertiary'
 
 type Props = PressableProps & {
+  left?: LeftRight
+  right?: LeftRight
   size?: 'default' | 'small'
   title: string
   type?: Type
@@ -21,6 +28,8 @@ type Props = PressableProps & {
 
 export default function ({
   disabled,
+  left,
+  right,
   size = 'default',
   title,
   type = 'primary',
@@ -83,7 +92,7 @@ export default function ({
 
       return _style
     },
-    [disabled, size, theme.colors, type]
+    [disabled, size, theme.colors, theme.spacing.small, type]
   )
 
   const textColor = useMemo(() => {
@@ -105,10 +114,25 @@ export default function ({
 
   return (
     <Pressable {...{ disabled, style, ...props }}>
-      <Flex alignItems="center" flex justifyContent="center">
+      <Flex
+        alignItems="center"
+        flex
+        flexDirection="row"
+        justifyContent="center"
+      >
+        {!!left && (
+          <Flex paddingRight="small">
+            {left({ alpha: textColor.alpha, color: textColor.color })}
+          </Flex>
+        )}
         <Text alpha={textColor.alpha} color={textColor.color} type="body1">
           {title}
         </Text>
+        {!!right && (
+          <Flex paddingLeft="small">
+            {right({ alpha: textColor.alpha, color: textColor.color })}
+          </Flex>
+        )}
       </Flex>
     </Pressable>
   )

@@ -76,7 +76,7 @@ export default function (): JSX.Element {
           </Flex>
           <Button
             onPress={() => {
-              //
+              navigation.navigate('Register')
             }}
             title="Register"
           />

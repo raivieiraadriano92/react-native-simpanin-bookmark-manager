@@ -2,3 +2,4 @@
 // export { default as MakeSomething } from './make-something'
 export { default as LogIn } from './log-in'
 export { default as Onboarding } from './onboarding'
+export { default as Register } from './register'

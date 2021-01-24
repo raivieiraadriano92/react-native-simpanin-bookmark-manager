@@ -2,37 +2,62 @@ import React, { useState } from 'react'
 import { TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
+import { useTheme } from 'styled-components/native'
 
 import { Flex, Icon, Text } from 'src/components/atoms'
-import { Button, Input } from 'src/components/molecules'
+import { Button, Input, ScrollViewFaded } from 'src/components/molecules'
 import { Header } from 'src/components/organisms'
 import { RootStackNavigator } from 'src/navigator'
-
-import * as Styled from './styled'
+import { hexToRgba } from 'src/utils'
 
 export default function (): JSX.Element {
   const navigation = useNavigation<StackNavigationProp<RootStackNavigator>>()
 
   const [secureTextEntry, setSecureTextEntry] = useState(true)
 
+  const theme = useTheme()
+
   return (
-    <Flex flex>
+    <>
       <Header
         goBack={() => {
           navigation.goBack()
         }}
-        subtitle="Login and start manage your bookmark"
-        title="Welcome Back!"
+        subtitle="Register to enjoy our best features"
+        title="Join with us!"
       />
-      <Styled.FormContainer>
+      <ScrollViewFaded
+        colors={{
+          bottom: [
+            hexToRgba(theme.colors.systemBackgroundPrimary, 0),
+            theme.colors.systemBackgroundPrimary
+          ],
+          top: [
+            theme.colors.systemBackgroundPrimary,
+            hexToRgba(theme.colors.systemBackgroundPrimary, 0)
+          ]
+        }}
+        contentContainerStyle={{
+          paddingHorizontal: theme.spacing.medium
+        }}
+        disableTopInset
+      >
         <Input
           autoCapitalize="none"
           autoCorrect={false}
-          autoFocus
-          keyboardType="email-address"
-          label="Email"
-          placeholder="Type your email"
+          // autoFocus
+          label="Name"
+          placeholder="Type your name"
         />
+        <Flex paddingTop="small">
+          <Input
+            autoCapitalize="none"
+            autoCorrect={false}
+            keyboardType="email-address"
+            label="Email"
+            placeholder="Type your email"
+          />
+        </Flex>
         <Flex paddingTop="small">
           <Input
             {...{ secureTextEntry }}
@@ -56,16 +81,10 @@ export default function (): JSX.Element {
           justifyContent="center"
           paddingTop="large"
         >
-          <Text type="body3">{'Forget your password? '}</Text>
-          <TouchableOpacity
-            onPress={() => {
-              ///
-            }}
-          >
-            <Text color="primary" type="body3">
-              Reset password
-            </Text>
-          </TouchableOpacity>
+          <Text type="body3">
+            By pressing “Register Now” button you agree to our Terms of Use and
+            Privacy Policy.
+          </Text>
         </Flex>
         <Flex
           alignItems="center"
@@ -73,24 +92,34 @@ export default function (): JSX.Element {
           justifyContent="center"
           paddingVertical="large"
         >
-          <Text type="body3">{'Don’t have an account? '}</Text>
+          <Text type="body3">{'Already have an account? '}</Text>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate('Register')
+              navigation.navigate('LogIn')
             }}
           >
             <Text color="primary" type="body3">
-              Register
+              Log In
             </Text>
           </TouchableOpacity>
         </Flex>
+        <Flex paddingBottom="small">
+          <Button
+            onPress={() => {
+              //
+            }}
+            title="Register"
+          />
+        </Flex>
         <Button
+          left={() => <Icon.Google />}
           onPress={() => {
             //
           }}
-          title="Log In"
+          title="Register with Google"
+          type="secondary"
         />
-      </Styled.FormContainer>
-    </Flex>
+      </ScrollViewFaded>
+    </>
   )
 }
