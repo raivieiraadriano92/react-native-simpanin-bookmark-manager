@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { useTheme } from 'styled-components/native'
@@ -9,8 +9,12 @@ import { Header } from 'src/components/organisms'
 import { RootStackNavigator } from 'src/navigator'
 import { hexToRgba } from 'src/utils'
 
+import CheckEmailModal from './check-email-modal'
+
 export default function (): JSX.Element {
   const navigation = useNavigation<StackNavigationProp<RootStackNavigator>>()
+
+  const [checkEmailModalVisible, setCheckEmailModalVisible] = useState(false)
 
   const theme = useTheme()
 
@@ -53,11 +57,15 @@ export default function (): JSX.Element {
         </Flex>
         <Button
           onPress={() => {
-            //
+            setCheckEmailModalVisible(true)
           }}
           title="Send"
         />
       </ScrollViewFaded>
+      <CheckEmailModal
+        close={() => setCheckEmailModalVisible(false)}
+        visible={checkEmailModalVisible}
+      />
     </>
   )
 }
