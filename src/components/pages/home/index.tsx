@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useState } from 'react'
 import { FlatList, Image, TouchableOpacity } from 'react-native'
 import { DefaultTheme, useTheme } from 'styled-components/native'
 import { useNavigation } from '@react-navigation/native'
@@ -11,6 +11,8 @@ import { Header } from 'src/components/organisms'
 import { useGeneralContext } from 'src/contexts/general'
 import { TabNavigator } from 'src/navigator/tab-navigator'
 import { hexToRgba } from 'src/utils'
+
+import SearchModal from './search-modal'
 
 const categories: {
   color: keyof DefaultTheme['colors']
@@ -137,6 +139,8 @@ export default function (): JSX.Element {
 
   const navigation = useNavigation<BottomTabNavigationProp<TabNavigator>>()
 
+  const [searchModalVisible, setSearchModalVisible] = useState(false)
+
   const theme = useTheme()
 
   return (
@@ -153,15 +157,23 @@ export default function (): JSX.Element {
             hexToRgba(theme.colors.systemBackgroundPrimary, 0)
           ]
         }}
-        // contentContainerStyle={{
-        //   paddingHorizontal: theme.spacing.medium
-        // }}
         disableTopInset
       >
-        <Flex paddingBottom="large" paddingHorizontal="medium">
+        <Flex marginBottom="large" marginHorizontal="medium">
           <Input
             left={iconProps => <Icon.Search {...iconProps} />}
             placeholder="Search your bookmark"
+          />
+          <TouchableOpacity
+            onPress={() => {
+              setSearchModalVisible(true)
+            }}
+            style={{
+              backgroundColor: theme.colors.transparent,
+              position: 'absolute',
+              height: '100%',
+              width: '100%'
+            }}
           />
         </Flex>
         <FlatList
@@ -321,6 +333,10 @@ export default function (): JSX.Element {
           ))}
         </Flex>
       </ScrollViewFaded>
+      <SearchModal
+        close={() => setSearchModalVisible(false)}
+        visible={searchModalVisible}
+      />
     </>
   )
 }

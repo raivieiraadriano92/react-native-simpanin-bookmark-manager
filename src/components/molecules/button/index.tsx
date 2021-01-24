@@ -22,7 +22,7 @@ type Props = PressableProps & {
   left?: LeftRight
   right?: LeftRight
   size?: 'default' | 'small'
-  title: string
+  title?: string
   type?: Type
 }
 
@@ -121,13 +121,15 @@ export default function ({
         justifyContent="center"
       >
         {!!left && (
-          <Flex paddingRight="small">
+          <Flex {...(title ? { paddingRight: 'small' } : {})}>
             {left({ alpha: textColor.alpha, color: textColor.color })}
           </Flex>
         )}
-        <Text alpha={textColor.alpha} color={textColor.color} type="body1">
-          {title}
-        </Text>
+        {!!title && (
+          <Text alpha={textColor.alpha} color={textColor.color} type="body1">
+            {title}
+          </Text>
+        )}
         {!!right && (
           <Flex paddingLeft="small">
             {right({ alpha: textColor.alpha, color: textColor.color })}
