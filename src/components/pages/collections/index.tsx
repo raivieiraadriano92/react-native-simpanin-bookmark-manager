@@ -1,20 +1,16 @@
 import React from 'react'
 import { useTheme } from 'styled-components/native'
 
-import { Icon } from 'src/components/atoms'
-import { Input, ScrollViewFaded } from 'src/components/molecules'
+import { ScrollViewFaded } from 'src/components/molecules'
 import { Header } from 'src/components/organisms'
-import { useGeneralContext } from 'src/contexts/general'
 import { hexToRgba } from 'src/utils'
 
 export default function (): JSX.Element {
-  const generalContext = useGeneralContext()
-
   const theme = useTheme()
 
   return (
     <>
-      <Header title={`Hello, ${generalContext.user?.name}!`} />
+      <Header title="Collections" />
       <ScrollViewFaded
         colors={{
           bottom: [
@@ -27,15 +23,12 @@ export default function (): JSX.Element {
           ]
         }}
         contentContainerStyle={{
+          flexGrow: 1,
+          justifyContent: 'flex-end',
           paddingHorizontal: theme.spacing.medium
         }}
         disableTopInset
-      >
-        <Input
-          left={iconProps => <Icon.Search {...iconProps} />}
-          placeholder="Search your bookmark"
-        />
-      </ScrollViewFaded>
+      />
     </>
   )
 }

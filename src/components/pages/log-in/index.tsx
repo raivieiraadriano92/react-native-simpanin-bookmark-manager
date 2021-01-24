@@ -7,10 +7,13 @@ import { useTheme } from 'styled-components/native'
 import { Flex, Icon, Text } from 'src/components/atoms'
 import { Button, Input, ScrollViewFaded } from 'src/components/molecules'
 import { Header } from 'src/components/organisms'
+import { useGeneralContext } from 'src/contexts/general'
 import { RootStackNavigator } from 'src/navigator'
 import { hexToRgba } from 'src/utils'
 
 export default function (): JSX.Element {
+  const generalContext = useGeneralContext()
+
   const navigation = useNavigation<StackNavigationProp<RootStackNavigator>>()
 
   const [secureTextEntry, setSecureTextEntry] = useState(true)
@@ -107,7 +110,8 @@ export default function (): JSX.Element {
         </Flex>
         <Button
           onPress={() => {
-            //
+            generalContext.logIn()
+            navigation.replace('Home')
           }}
           title="Log In"
         />

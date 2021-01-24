@@ -12,8 +12,11 @@ import {
   ResetPassword
 } from 'src/components/pages'
 
+import TabNavigator from './tab-navigator'
+
 export type RootStackNavigator = {
   CreateNewPassword: undefined
+  Home: undefined
   LogIn: undefined
   Onboarding: undefined
   Register: undefined
@@ -39,11 +42,12 @@ export default function (): JSX.Element {
           stackAnimation: 'slide_from_right'
         }}
       >
-        <Stack.Screen name="CreateNewPassword" component={CreateNewPassword} />
-        <Stack.Screen name="LogIn" component={LogIn} />
-        <Stack.Screen name="Onboarding" component={Onboarding} />
-        <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen name="ResetPassword" component={ResetPassword} />
+        <Stack.Screen component={CreateNewPassword} name="CreateNewPassword" />
+        <Stack.Screen component={TabNavigator} name="Home" />
+        <Stack.Screen component={LogIn} name="LogIn" />
+        <Stack.Screen component={Onboarding} name="Onboarding" />
+        <Stack.Screen component={Register} name="Register" />
+        <Stack.Screen component={ResetPassword} name="ResetPassword" />
       </Stack.Navigator>
     </NavigationContainer>
   )

@@ -17,7 +17,7 @@ interface LeftRight {
 }
 
 type Props = TextInputProps & {
-  label: string
+  label?: string
   left?: LeftRight
   right?: LeftRight
   status?: 'error' | 'success'
@@ -103,10 +103,14 @@ export default function ({
 
   return (
     <Flex>
-      <Text {...labelColor} type="body3">
-        {label}
-      </Text>
-      <Space size="tiny" />
+      {!!label && (
+        <>
+          <Text {...labelColor} type="body3">
+            {label}
+          </Text>
+          <Space size="tiny" />
+        </>
+      )}
       <Flex>
         <TextInput
           {...{ autoFocus, editable, style, value, ...props }}
