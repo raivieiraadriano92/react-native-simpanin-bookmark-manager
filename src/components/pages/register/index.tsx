@@ -38,6 +38,8 @@ export default function (): JSX.Element {
           ]
         }}
         contentContainerStyle={{
+          flexGrow: 1,
+          justifyContent: 'flex-end',
           paddingHorizontal: theme.spacing.medium
         }}
         disableTopInset
@@ -45,7 +47,7 @@ export default function (): JSX.Element {
         <Input
           autoCapitalize="none"
           autoCorrect={false}
-          // autoFocus
+          autoFocus
           label="Name"
           placeholder="Type your name"
         />

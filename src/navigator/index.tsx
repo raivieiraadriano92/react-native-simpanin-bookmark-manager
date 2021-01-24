@@ -11,7 +11,6 @@ import {
   Onboarding,
   Register
 } from 'src/components/pages'
-import { styles as TextStyles } from 'src/components/atoms/text'
 
 export type RootStackNavigator = {
   // Home: undefined
@@ -31,7 +30,7 @@ export default function (): JSX.Element {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Register"
+        initialRouteName="Onboarding"
         screenOptions={{
           contentStyle: {
             backgroundColor: theme.colors.systemBackgroundPrimary

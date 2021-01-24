@@ -2,21 +2,23 @@ import React, { useState } from 'react'
 import { TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
+import { useTheme } from 'styled-components/native'
 
 import { Flex, Icon, Text } from 'src/components/atoms'
-import { Button, Input } from 'src/components/molecules'
+import { Button, Input, ScrollViewFaded } from 'src/components/molecules'
 import { Header } from 'src/components/organisms'
 import { RootStackNavigator } from 'src/navigator'
-
-import * as Styled from './styled'
+import { hexToRgba } from 'src/utils'
 
 export default function (): JSX.Element {
   const navigation = useNavigation<StackNavigationProp<RootStackNavigator>>()
 
   const [secureTextEntry, setSecureTextEntry] = useState(true)
 
+  const theme = useTheme()
+
   return (
-    <Flex flex>
+    <>
       <Header
         goBack={() => {
           navigation.goBack()
@@ -24,7 +26,24 @@ export default function (): JSX.Element {
         subtitle="Login and start manage your bookmark"
         title="Welcome Back!"
       />
-      <Styled.FormContainer>
+      <ScrollViewFaded
+        colors={{
+          bottom: [
+            hexToRgba(theme.colors.systemBackgroundPrimary, 0),
+            theme.colors.systemBackgroundPrimary
+          ],
+          top: [
+            theme.colors.systemBackgroundPrimary,
+            hexToRgba(theme.colors.systemBackgroundPrimary, 0)
+          ]
+        }}
+        contentContainerStyle={{
+          flexGrow: 1,
+          justifyContent: 'flex-end',
+          paddingHorizontal: theme.spacing.medium
+        }}
+        disableTopInset
+      >
         <Input
           autoCapitalize="none"
           autoCorrect={false}
@@ -90,7 +109,7 @@ export default function (): JSX.Element {
           }}
           title="Log In"
         />
-      </Styled.FormContainer>
-    </Flex>
+      </ScrollViewFaded>
+    </>
   )
 }

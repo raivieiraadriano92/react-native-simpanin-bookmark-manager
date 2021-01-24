@@ -1,5 +1,10 @@
 import React, { PropsWithChildren } from 'react'
-import { ScrollView, ScrollViewProps } from 'react-native'
+import {
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  ScrollViewProps
+} from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import normalize from 'react-native-normalize'
@@ -26,34 +31,39 @@ export default function ({
   const heightTop = normalize(48) + (disableTopInset ? 0 : insets.top)
 
   return (
-    <Flex flex>
-      <ScrollView {...props}>
-        <Flex style={{ height: heightTop }} />
-        {children}
-        <Flex style={{ height: heightBottom }} />
-      </ScrollView>
-      {!!colors.top && (
-        <LinearGradient
-          colors={colors.top}
-          style={{
-            height: heightTop,
-            position: 'absolute',
-            top: 0,
-            width: '100%'
-          }}
-        />
-      )}
-      {!!colors.bottom && (
-        <LinearGradient
-          colors={colors.bottom}
-          style={{
-            bottom: 0,
-            height: heightBottom,
-            position: 'absolute',
-            width: '100%'
-          }}
-        />
-      )}
-    </Flex>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={{ flex: 1 }}
+    >
+      <Flex flex>
+        <ScrollView {...props}>
+          <Flex style={{ height: heightTop }} />
+          {children}
+          <Flex style={{ height: heightBottom }} />
+        </ScrollView>
+        {!!colors.top && (
+          <LinearGradient
+            colors={colors.top}
+            style={{
+              height: heightTop,
+              position: 'absolute',
+              top: 0,
+              width: '100%'
+            }}
+          />
+        )}
+        {!!colors.bottom && (
+          <LinearGradient
+            colors={colors.bottom}
+            style={{
+              bottom: 0,
+              height: heightBottom,
+              position: 'absolute',
+              width: '100%'
+            }}
+          />
+        )}
+      </Flex>
+    </KeyboardAvoidingView>
   )
 }
