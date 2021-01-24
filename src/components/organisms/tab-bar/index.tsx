@@ -4,30 +4,29 @@ import {
   BottomTabBarOptions,
   BottomTabBarProps
 } from '@react-navigation/bottom-tabs'
+import normalize from 'react-native-normalize'
 
 import { useTheme } from 'styled-components/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 import { Flex, Icon, Text } from 'src/components/atoms'
-
-export type TabNavigator = {
-  Bookmarks: undefined
-  Collections: undefined
-  Home: undefined
-  Settings: undefined
-}
+import { TabNavigator } from 'src/navigator/tab-navigator'
 
 function getTabInfo({
   focused,
   routeName
 }: {
   focused: boolean
-  routeName: keyof TabNavigator
+  routeName: keyof TabNavigator | 'Add'
 }): {
-  label: string
+  label?: string
   icon: ReactNode
 } {
   switch (routeName) {
+    case 'Add':
+      return {
+        icon: <Icon.Plus color="primary" />
+      }
     case 'Bookmarks':
       return {
         label: 'Bookmarks',
@@ -80,15 +79,15 @@ export default function ({
   return (
     <SafeAreaView
       edges={['bottom']}
-      style={{ backgroundColor: theme.colors.systemBackgroundSecondary }}
+      style={{
+        backgroundColor: theme.colors.systemBackgroundSecondary
+      }}
     >
       <Flex
         alignItems="center"
         flexDirection="row"
         justifyContent="space-evenly"
-        style={{
-          height: 68
-        }}
+        style={{ height: 68 }}
       >
         {state.routes.map((route, index) => {
           const focused = state.index === index
@@ -102,18 +101,40 @@ export default function ({
             <TouchableOpacity
               key={route.name}
               onPress={() => {
+                if (route.name === 'Add') {
+                  return
+                }
+
                 navigation.navigate(route.name)
               }}
             >
-              <Flex alignItems="center" justifyContent="center">
-                <Flex paddingBottom="tinyest">{tabInfo.icon}</Flex>
-                <Text
-                  alpha={focused ? 1 : 0.6}
-                  color={focused ? 'primary' : 'text'}
-                  type="body4"
-                >
-                  {tabInfo.label}
-                </Text>
+              <Flex
+                alignItems="center"
+                justifyContent="center"
+                style={
+                  route.name === 'Add'
+                    ? {
+                        borderColor: theme.colors.primary,
+                        borderRadius: normalize(12),
+                        borderWidth: 1,
+                        height: normalize(37),
+                        width: normalize(37)
+                      }
+                    : {}
+                }
+              >
+                {tabInfo.icon}
+                {!!tabInfo.label && (
+                  <Flex paddingTop="tinyest">
+                    <Text
+                      alpha={focused ? 1 : 0.6}
+                      color={focused ? 'primary' : 'text'}
+                      type="body4"
+                    >
+                      {tabInfo.label}
+                    </Text>
+                  </Flex>
+                )}
               </Flex>
             </TouchableOpacity>
           )

@@ -28,6 +28,7 @@ import MoreHorizontal from './sources/more-horizontal'
 import MultipleDocuments from './sources/multiple-documents'
 import PersonAdd from './sources/person-add'
 import PieChart from './sources/pie-chart'
+import Plus from './sources/plus'
 import Search from './sources/search'
 import Setting from './sources/setting'
 import Share from './sources/share'
@@ -69,6 +70,7 @@ export default {
   MultipleDocuments,
   PersonAdd,
   PieChart,
+  Plus,
   Search,
   Setting,
   Share,

@@ -1,4 +1,5 @@
 import React from 'react'
+import { View } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { useTheme } from 'styled-components/native'
 
@@ -14,6 +15,10 @@ export type TabNavigator = {
 
 const Tab = createBottomTabNavigator()
 
+function Add() {
+  return <View />
+}
+
 export default function (): JSX.Element {
   const theme = useTheme()
 
@@ -27,6 +32,7 @@ export default function (): JSX.Element {
     >
       <Tab.Screen component={Home} name="Home" />
       <Tab.Screen component={Bookmarks} name="Bookmarks" />
+      <Tab.Screen component={Add} name="Add" />
       <Tab.Screen component={Collections} name="Collections" />
       <Tab.Screen component={Settings} name="Settings" />
     </Tab.Navigator>
