@@ -3,3 +3,4 @@
 export { default as LogIn } from './log-in'
 export { default as Onboarding } from './onboarding'
 export { default as Register } from './register'
+export { default as ResetPassword } from './reset-password'

@@ -78,7 +78,7 @@ export default function (): JSX.Element {
           <Text type="body3">{'Forget your password? '}</Text>
           <TouchableOpacity
             onPress={() => {
-              ///
+              navigation.navigate('ResetPassword')
             }}
           >
             <Text color="primary" type="body3">

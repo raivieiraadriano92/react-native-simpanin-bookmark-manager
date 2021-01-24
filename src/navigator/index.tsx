@@ -9,7 +9,8 @@ import {
   LogIn,
   // MakeSomething,
   Onboarding,
-  Register
+  Register,
+  ResetPassword
 } from 'src/components/pages'
 
 export type RootStackNavigator = {
@@ -18,6 +19,7 @@ export type RootStackNavigator = {
   // MakeSomething: undefined
   Onboarding: undefined
   Register: undefined
+  ResetPassword: undefined
 }
 
 enableScreens()
@@ -44,6 +46,7 @@ export default function (): JSX.Element {
         {/* <Stack.Screen name="MakeSomething" component={MakeSomething} /> */}
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="ResetPassword" component={ResetPassword} />
       </Stack.Navigator>
     </NavigationContainer>
   )
