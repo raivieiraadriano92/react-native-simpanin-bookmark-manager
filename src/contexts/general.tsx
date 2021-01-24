@@ -35,8 +35,8 @@ export function useGeneralContext(): GeneralContextValues {
 
 export default function ({ children }: Props): JSX.Element {
   const [darkMode, setDarkMode] = useState(
-    // Appearance.getColorScheme() === 'dark'
-    true
+    Appearance.getColorScheme() === 'dark'
+    // true
   )
 
   const [user, setUser] = useState<User>({

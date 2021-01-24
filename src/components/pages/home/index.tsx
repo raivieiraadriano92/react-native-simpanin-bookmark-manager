@@ -328,6 +328,7 @@ export default function (): JSX.Element {
                     </Text>
                   </Flex>
                 </Flex>
+                <Icon.MoreHorizontal />
               </Flex>
             </TouchableOpacity>
           ))}

@@ -57,7 +57,7 @@ export default function ({ close, visible }: Props): JSX.Element {
           right={
             <Button
               onPress={close}
-              left={() => <Icon.Close color="white" />}
+              left={() => <Icon.Close color="text" />}
               size="small"
               type="tertiary"
             />
