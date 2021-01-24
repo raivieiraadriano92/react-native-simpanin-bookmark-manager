@@ -27,8 +27,8 @@ export default function ({
 }: Props): JSX.Element {
   const insets = useSafeAreaInsets()
 
-  const heightBottom = normalize(48) + (disableBottomInset ? 0 : insets.bottom)
-  const heightTop = normalize(48) + (disableTopInset ? 0 : insets.top)
+  const heightBottom = normalize(32) + (disableBottomInset ? 0 : insets.bottom)
+  const heightTop = normalize(32) + (disableTopInset ? 0 : insets.top)
 
   return (
     <KeyboardAvoidingView

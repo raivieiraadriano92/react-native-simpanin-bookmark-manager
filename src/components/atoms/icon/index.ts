@@ -3,11 +3,18 @@ import { DefaultTheme } from 'styled-components'
 import Apps from './sources/apps'
 import ArrowLeft from './sources/arrow-left'
 import Bookmark from './sources/bookmark'
+import CategoryDocuments from './sources/category-documents'
+import CategoryFavorites from './sources/category-favorites'
+import CategoryImages from './sources/category-images'
+import CategoryLinks from './sources/category-links'
+import CategoryVideos from './sources/category-videos'
 import ChevronRight from './sources/chevron-right'
 import Close from './sources/close'
 import CloudCompleted from './sources/cloud-completed'
+import ColoredFolder from './sources/colored-folder'
 import CubeAdd from './sources/cube-add'
 import Cube from './sources/cube'
+import Dot from './sources/dot'
 import Edit from './sources/edit'
 import EyeClosed from './sources/eye-closed'
 import Eye from './sources/eye'
@@ -45,11 +52,18 @@ export default {
   Apps,
   ArrowLeft,
   Bookmark,
+  CategoryDocuments,
+  CategoryFavorites,
+  CategoryImages,
+  CategoryLinks,
+  CategoryVideos,
   ChevronRight,
   Close,
   CloudCompleted,
+  ColoredFolder,
   CubeAdd,
   Cube,
+  Dot,
   Edit,
   EyeClosed,
   Eye,
