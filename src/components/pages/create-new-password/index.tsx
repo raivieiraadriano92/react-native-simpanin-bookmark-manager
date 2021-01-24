@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { useTheme } from 'styled-components/native'
 
-import { Flex, Icon, Text } from 'src/components/atoms'
+import { Flex, Icon } from 'src/components/atoms'
 import { Button, Input, ScrollViewFaded } from 'src/components/molecules'
 import { Header } from 'src/components/organisms'
 import { RootStackNavigator } from 'src/navigator'
@@ -23,8 +23,8 @@ export default function (): JSX.Element {
         goBack={() => {
           navigation.goBack()
         }}
-        subtitle="Login and start manage your bookmark"
-        title="Welcome Back!"
+        subtitle="Your new password must be different from previous used passwords."
+        title="Create new password"
       />
       <ScrollViewFaded
         colors={{
@@ -44,19 +44,12 @@ export default function (): JSX.Element {
         }}
         disableTopInset
       >
-        <Input
-          autoCapitalize="none"
-          autoCorrect={false}
-          autoFocus
-          keyboardType="email-address"
-          label="Email"
-          placeholder="Type your email"
-        />
-        <Flex paddingTop="small">
+        <Flex flex paddingBottom="large">
           <Input
             {...{ secureTextEntry }}
             autoCapitalize="none"
             autoCorrect={false}
+            autoFocus
             label="Password"
             placeholder="Type your password"
             right={({ alpha, color }) => (
@@ -70,46 +63,21 @@ export default function (): JSX.Element {
               </TouchableOpacity>
             )}
           />
-        </Flex>
-        <Flex
-          alignItems="center"
-          flexDirection="row"
-          justifyContent="center"
-          paddingTop="large"
-        >
-          <Text type="body3">{'Forget your password? '}</Text>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('ResetPassword')
-            }}
-          >
-            <Text color="primary" type="body3">
-              Reset password
-            </Text>
-          </TouchableOpacity>
-        </Flex>
-        <Flex
-          alignItems="center"
-          flexDirection="row"
-          justifyContent="center"
-          paddingVertical="large"
-        >
-          <Text type="body3">{'Don’t have an account? '}</Text>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('Register')
-            }}
-          >
-            <Text color="primary" type="body3">
-              Register
-            </Text>
-          </TouchableOpacity>
+          <Flex paddingTop="small">
+            <Input
+              {...{ secureTextEntry }}
+              autoCapitalize="none"
+              autoCorrect={false}
+              label="Confirm password"
+              placeholder="Type your password"
+            />
+          </Flex>
         </Flex>
         <Button
           onPress={() => {
             //
           }}
-          title="Log In"
+          title="Send"
         />
       </ScrollViewFaded>
     </>

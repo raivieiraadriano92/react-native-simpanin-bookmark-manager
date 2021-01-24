@@ -5,18 +5,16 @@ import { createNativeStackNavigator } from 'react-native-screens/native-stack'
 import { useTheme } from 'styled-components/native'
 
 import {
-  // Home,
+  CreateNewPassword,
   LogIn,
-  // MakeSomething,
   Onboarding,
   Register,
   ResetPassword
 } from 'src/components/pages'
 
 export type RootStackNavigator = {
-  // Home: undefined
+  CreateNewPassword: undefined
   LogIn: undefined
-  // MakeSomething: undefined
   Onboarding: undefined
   Register: undefined
   ResetPassword: undefined
@@ -32,7 +30,7 @@ export default function (): JSX.Element {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="ResetPassword"
+        initialRouteName="Onboarding"
         screenOptions={{
           contentStyle: {
             backgroundColor: theme.colors.systemBackgroundPrimary
@@ -41,9 +39,8 @@ export default function (): JSX.Element {
           stackAnimation: 'slide_from_right'
         }}
       >
-        {/* <Stack.Screen name="Home" component={Home} /> */}
+        <Stack.Screen name="CreateNewPassword" component={CreateNewPassword} />
         <Stack.Screen name="LogIn" component={LogIn} />
-        {/* <Stack.Screen name="MakeSomething" component={MakeSomething} /> */}
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="ResetPassword" component={ResetPassword} />

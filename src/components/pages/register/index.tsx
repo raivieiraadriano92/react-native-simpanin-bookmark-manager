@@ -45,7 +45,7 @@ export default function (): JSX.Element {
         disableTopInset
       >
         <Input
-          autoCapitalize="none"
+          autoCapitalize="words"
           autoCorrect={false}
           autoFocus
           label="Name"
@@ -63,6 +63,8 @@ export default function (): JSX.Element {
         <Flex paddingTop="small">
           <Input
             {...{ secureTextEntry }}
+            autoCapitalize="none"
+            autoCorrect={false}
             label="Password"
             placeholder="Type your password"
             right={({ alpha, color }) => (
