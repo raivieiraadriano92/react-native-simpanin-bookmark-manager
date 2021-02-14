@@ -1,7 +1,7 @@
-import { Animated } from 'react-native'
 import styled from 'styled-components/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import normalize from 'react-native-normalize'
+import Animated from 'react-native-reanimated'
 
 export const ButtonsContainer = styled(SafeAreaView)`
   background-color: ${props => props.theme.colors.systemBackgroundPrimary};

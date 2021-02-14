@@ -33,7 +33,7 @@ export default function (): JSX.Element {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName="Onboarding"
         screenOptions={{
           contentStyle: {
             backgroundColor: theme.colors.systemBackgroundPrimary
