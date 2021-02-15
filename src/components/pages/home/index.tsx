@@ -15,6 +15,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { Flex, Icon, Text } from 'src/components/atoms'
 import { Button, Input } from 'src/components/molecules'
+import Fade from 'src/components/molecules/scrollview-faded/fade'
 import { INPUT_HEIGHT } from 'src/components/molecules/input'
 import { Header } from 'src/components/organisms'
 import { useGeneralContext } from 'src/contexts/general'
@@ -254,6 +255,9 @@ export default function (): JSX.Element {
               width: '100%'
             }}
           />
+        </Flex>
+        <Flex style={{ position: 'absolute', top: '100%', width: '100%' }}>
+          <Fade disableInset type="top" />
         </Flex>
       </Animated.View>
       <Animated.ScrollView
