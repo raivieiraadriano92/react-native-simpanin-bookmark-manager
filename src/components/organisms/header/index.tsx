@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import { TouchableOpacity } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { useTheme } from 'styled-components/native'
 
 import { Flex, Icon, Text } from 'src/components/atoms'
 
@@ -17,9 +18,23 @@ export default function ({
   subtitle,
   title
 }: Props): JSX.Element {
+  const insets = useSafeAreaInsets()
+
+  const theme = useTheme()
+
   return (
-    <SafeAreaView edges={['top']}>
-      <Flex alignItems="center" flexDirection="row" padding="medium">
+    <Flex
+      style={{
+        backgroundColor: theme.colors.systemBackgroundPrimary,
+        paddingTop: insets.top
+      }}
+    >
+      <Flex
+        alignItems="center"
+        flexDirection="row"
+        paddingHorizontal="medium"
+        paddingTop="medium"
+      >
         {!!goBack && (
           <Flex marginRight="small">
             <TouchableOpacity onPress={goBack}>
@@ -35,7 +50,7 @@ export default function ({
         {right}
       </Flex>
       {!!subtitle && (
-        <Flex paddingBottom="medium" paddingHorizontal="medium">
+        <Flex paddingHorizontal="medium">
           {!!title && <Text type="h3">{title}</Text>}
           {!!subtitle && (
             <Flex paddingTop="tiny">
@@ -44,6 +59,6 @@ export default function ({
           )}
         </Flex>
       )}
-    </SafeAreaView>
+    </Flex>
   )
 }

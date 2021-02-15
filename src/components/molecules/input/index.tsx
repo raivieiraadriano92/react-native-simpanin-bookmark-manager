@@ -25,7 +25,8 @@ type Props = TextInputProps & {
 }
 
 const iconSize = normalize(24)
-const inputHeight = normalize(41, 'height')
+
+export const INPUT_HEIGHT = normalize(41, 'height')
 
 export default function ({
   autoFocus = false,
@@ -55,7 +56,8 @@ export default function ({
       borderRadius: normalize(12),
       borderWidth: 1,
       color: theme.colors.text,
-      height: inputHeight,
+
+      height: INPUT_HEIGHT,
       paddingLeft:
         normalize(theme.spacing.small) +
         (left ? iconSize + theme.spacing.tiny : 0),
@@ -132,7 +134,8 @@ export default function ({
               height: iconSize,
               position: 'absolute',
               left: normalize(theme.spacing.small),
-              top: (inputHeight - iconSize) / 2,
+
+              top: (INPUT_HEIGHT - iconSize) / 2,
               width: iconSize
             }}
           >
@@ -149,7 +152,8 @@ export default function ({
               height: iconSize,
               position: 'absolute',
               right: normalize(theme.spacing.small),
-              top: (inputHeight - iconSize) / 2,
+
+              top: (INPUT_HEIGHT - iconSize) / 2,
               width: iconSize
             }}
           >
@@ -166,7 +170,8 @@ export default function ({
                   height: iconSize,
                   position: 'absolute',
                   right: normalize(theme.spacing.small),
-                  top: (inputHeight - iconSize) / 2,
+
+                  top: (INPUT_HEIGHT - iconSize) / 2,
                   width: iconSize
                 }}
               >

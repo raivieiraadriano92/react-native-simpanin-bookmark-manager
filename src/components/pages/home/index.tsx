@@ -4,9 +4,18 @@ import { DefaultTheme, useTheme } from 'styled-components/native'
 import { useNavigation } from '@react-navigation/native'
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs'
 import normalize from 'react-native-normalize'
+import Animated, {
+  Extrapolate,
+  interpolate,
+  useAnimatedScrollHandler,
+  useAnimatedStyle,
+  useSharedValue
+} from 'react-native-reanimated'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { Flex, Icon, Text } from 'src/components/atoms'
-import { Button, Input, ScrollViewFaded } from 'src/components/molecules'
+import { Button, Input } from 'src/components/molecules'
+import { INPUT_HEIGHT } from 'src/components/molecules/input'
 import { Header } from 'src/components/organisms'
 import { useGeneralContext } from 'src/contexts/general'
 import { TabNavigator } from 'src/navigator/tab-navigator'
@@ -143,23 +152,93 @@ export default function (): JSX.Element {
 
   const theme = useTheme()
 
+  const insets = useSafeAreaInsets()
+
+  // animated
+  const [headerHeight, setHeaderHeight] = useState(0)
+
+  const scrollY = useSharedValue(0)
+
+  const scrollHandler = useAnimatedScrollHandler(event => {
+    scrollY.value = event.contentOffset.y
+  })
+
+  const animatedHeaderStyle = useAnimatedStyle(() => ({
+    opacity: interpolate(
+      scrollY.value,
+      [0, headerHeight],
+      [1, 0],
+      Extrapolate.CLAMP
+    ),
+    transform: [
+      {
+        translateY: interpolate(
+          scrollY.value,
+          [0, headerHeight],
+          [0, -headerHeight],
+          Extrapolate.CLAMP
+        )
+      }
+    ]
+  }))
+
+  const animatedSearchButtonStyle = useAnimatedStyle(() => ({
+    height: interpolate(
+      scrollY.value,
+      [0, headerHeight],
+      [
+        INPUT_HEIGHT + theme.spacing.large,
+        INPUT_HEIGHT + theme.spacing.medium + insets.top
+      ],
+      Extrapolate.CLAMP
+    ),
+    transform: [
+      {
+        translateY: interpolate(
+          scrollY.value,
+          [0, headerHeight],
+          [0, -headerHeight],
+          Extrapolate.CLAMP
+        )
+      }
+    ]
+  }))
+  // -----
+
   return (
     <>
-      <Header title={`Hello, ${generalContext.user?.name}!`} />
-      <ScrollViewFaded
-        colors={{
-          bottom: [
-            hexToRgba(theme.colors.systemBackgroundPrimary, 0),
-            theme.colors.systemBackgroundPrimary
-          ],
-          top: [
-            theme.colors.systemBackgroundPrimary,
-            hexToRgba(theme.colors.systemBackgroundPrimary, 0)
-          ]
+      <Animated.View
+        onLayout={e => {
+          if (!headerHeight) {
+            setHeaderHeight(e.nativeEvent.layout.height)
+          }
         }}
-        disableTopInset
+        style={[
+          {
+            // backgroundColor: '#99f',
+            position: 'absolute',
+            width: '100%',
+            zIndex: 1
+          },
+          animatedHeaderStyle
+        ]}
       >
-        <Flex marginBottom="large" marginHorizontal="medium">
+        <Header title={`Hello, ${generalContext.user?.name}!`} />
+      </Animated.View>
+      <Animated.View
+        style={[
+          {
+            backgroundColor: theme.colors.systemBackgroundPrimary, // '#ff8',
+            justifyContent: 'flex-end',
+            position: 'absolute',
+            width: '100%',
+            zIndex: 1,
+            top: headerHeight
+          },
+          animatedSearchButtonStyle
+        ]}
+      >
+        <Flex paddingHorizontal="medium">
           <Input
             left={iconProps => <Icon.Search {...iconProps} />}
             placeholder="Search your bookmark"
@@ -176,6 +255,15 @@ export default function (): JSX.Element {
             }}
           />
         </Flex>
+      </Animated.View>
+      <Animated.ScrollView
+        contentContainerStyle={{
+          paddingTop: headerHeight + INPUT_HEIGHT + theme.spacing.large * 2
+        }}
+        onScroll={scrollHandler}
+        scrollEventThrottle={16}
+        showsVerticalScrollIndicator={false}
+      >
         <FlatList
           contentContainerStyle={{
             paddingHorizontal: theme.spacing.medium
@@ -215,7 +303,7 @@ export default function (): JSX.Element {
           justifyContent="space-between"
           paddingTop="large"
           paddingHorizontal="medium"
-          paddingBottom="medium"
+          paddingBottom="small"
         >
           <Text type="h4">My Collections</Text>
           <Button
@@ -273,7 +361,7 @@ export default function (): JSX.Element {
         <Flex
           paddingTop="large"
           paddingHorizontal="medium"
-          paddingBottom="medium"
+          paddingBottom="small"
         >
           <Text type="h4">Recent bookmark</Text>
         </Flex>
@@ -333,7 +421,7 @@ export default function (): JSX.Element {
             </TouchableOpacity>
           ))}
         </Flex>
-      </ScrollViewFaded>
+      </Animated.ScrollView>
       <SearchModal
         close={() => setSearchModalVisible(false)}
         visible={searchModalVisible}
