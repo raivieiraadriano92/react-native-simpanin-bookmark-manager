@@ -48,7 +48,12 @@ export default function ({ close, visible }: Props): JSX.Element {
   const theme = useTheme()
 
   return (
-    <Modal {...{ visible }} animationType="fade" onRequestClose={close}>
+    <Modal
+      {...{ visible }}
+      animationType="fade"
+      onRequestClose={close}
+      statusBarTranslucent
+    >
       <Flex
         flex
         style={{ backgroundColor: theme.colors.systemBackgroundPrimary }}
