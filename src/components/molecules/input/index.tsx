@@ -59,10 +59,9 @@ export default function ({
 
       height: INPUT_HEIGHT,
       paddingLeft:
-        normalize(theme.spacing.small) +
-        (left ? iconSize + theme.spacing.tiny : 0),
+        theme.spacing.small + (left ? iconSize + theme.spacing.tiny : 0),
       paddingRight:
-        normalize(theme.spacing.small) +
+        theme.spacing.small +
         (right || status ? iconSize + theme.spacing.tiny : 0),
       ...TextStyles.body2
     }
@@ -133,7 +132,7 @@ export default function ({
             style={{
               height: iconSize,
               position: 'absolute',
-              left: normalize(theme.spacing.small),
+              left: theme.spacing.small,
 
               top: (INPUT_HEIGHT - iconSize) / 2,
               width: iconSize
@@ -151,7 +150,7 @@ export default function ({
               borderRadius: iconSize,
               height: iconSize,
               position: 'absolute',
-              right: normalize(theme.spacing.small),
+              right: theme.spacing.small,
 
               top: (INPUT_HEIGHT - iconSize) / 2,
               width: iconSize
@@ -169,7 +168,7 @@ export default function ({
                 style={{
                   height: iconSize,
                   position: 'absolute',
-                  right: normalize(theme.spacing.small),
+                  right: theme.spacing.small,
 
                   top: (INPUT_HEIGHT - iconSize) / 2,
                   width: iconSize

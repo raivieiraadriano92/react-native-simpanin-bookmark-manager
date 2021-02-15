@@ -1,5 +1,6 @@
 import { Platform } from 'react-native'
 import { DefaultTheme } from 'styled-components/native'
+import normalize from 'react-native-normalize'
 
 export const fonts = {
   bold: `Manrope${Platform.OS === 'ios' ? '-' : '_'}Bold`,
@@ -12,11 +13,11 @@ export const fonts = {
 }
 
 const spacing: DefaultTheme['spacing'] = {
-  tinyest: 4,
-  tiny: 8,
-  small: 16,
-  medium: 24,
-  large: 40
+  tinyest: normalize(4),
+  tiny: normalize(8),
+  small: normalize(16),
+  medium: normalize(24),
+  large: normalize(40)
 }
 
 const lightColors: DefaultTheme['colors'] = {
