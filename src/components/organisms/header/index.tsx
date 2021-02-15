@@ -50,7 +50,7 @@ export default function ({
         {right}
       </Flex>
       {!!subtitle && (
-        <Flex paddingHorizontal="medium">
+        <Flex paddingHorizontal="medium" paddingTop="large">
           {!!title && <Text type="h3">{title}</Text>}
           {!!subtitle && (
             <Flex paddingTop="tiny">
