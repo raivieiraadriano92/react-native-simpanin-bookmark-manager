@@ -5,7 +5,6 @@ import {
   BottomTabBarProps
 } from '@react-navigation/bottom-tabs'
 import normalize from 'react-native-normalize'
-
 import { useTheme } from 'styled-components/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 

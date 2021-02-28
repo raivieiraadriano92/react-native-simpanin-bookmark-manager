@@ -5,6 +5,7 @@ import { StatusBar } from 'react-native'
 import { ThemeProvider } from 'styled-components/native'
 import CodePush from 'react-native-code-push'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { Portal } from 'react-native-paper'
 
 import GeneralProvider, { useGeneralContext } from './contexts/general'
 import Navigator from './navigator'
@@ -31,7 +32,9 @@ function Wrap(): JSX.Element {
           barStyle={generalContext.darkMode ? 'light-content' : 'dark-content'}
           translucent
         />
-        <Navigator />
+        <Portal.Host>
+          <Navigator />
+        </Portal.Host>
       </ThemeProvider>
     </SafeAreaProvider>
   )

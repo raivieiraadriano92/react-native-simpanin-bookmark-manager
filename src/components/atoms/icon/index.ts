@@ -28,6 +28,8 @@ import HelpCircle from './sources/help-circle'
 import Home from './sources/home'
 import ICChecklist from './sources/ic-checklist'
 import ICExclamation from './sources/ic-exclamation'
+import ICRadioOff from './sources/ic-radio-off'
+import ICRadioOn from './sources/ic-radio-on'
 import ICSort from './sources/ic-sort'
 import Logo from './sources/logo'
 import Menu from './sources/menu'
@@ -77,6 +79,8 @@ export default {
   Home,
   ICChecklist,
   ICExclamation,
+  ICRadioOff,
+  ICRadioOn,
   ICSort,
   Logo,
   Menu,
