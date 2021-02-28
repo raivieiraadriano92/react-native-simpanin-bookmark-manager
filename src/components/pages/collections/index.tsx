@@ -1,34 +1,63 @@
-import React from 'react'
-import { useTheme } from 'styled-components/native'
+import React, { useState } from 'react'
+import { useSharedValue } from 'react-native-reanimated'
 
-import { ScrollViewFaded } from 'src/components/molecules'
-import { Header } from 'src/components/organisms'
-import { hexToRgba } from 'src/utils'
+import { Flex, Icon } from 'src/components/atoms'
+import { AnimatedHeaderWithSearchBar } from 'src/components/templates'
+
+import Sections from './sections'
+import * as Styled from './styled'
 
 export default function (): JSX.Element {
-  const theme = useTheme()
+  const [headerHeight, setHeaderHeight] = useState(0)
+  const [mode, setMode] = useState<'grid' | 'list'>('grid')
+
+  const scrollY = useSharedValue(0)
 
   return (
-    <>
-      <Header title="Collections" />
-      <ScrollViewFaded
-        colors={{
-          bottom: [
-            hexToRgba(theme.colors.systemBackgroundPrimary, 0),
-            theme.colors.systemBackgroundPrimary
-          ],
-          top: [
-            theme.colors.systemBackgroundPrimary,
-            hexToRgba(theme.colors.systemBackgroundPrimary, 0)
-          ]
-        }}
-        contentContainerStyle={{
-          flexGrow: 1,
-          justifyContent: 'flex-end',
-          paddingHorizontal: theme.spacing.medium
-        }}
-        disableTopInset
-      />
-    </>
+    <AnimatedHeaderWithSearchBar
+      {...{ scrollY }}
+      onChangeHeaderHeight={h => setHeaderHeight(h)}
+      clearSearch={() => {
+        //
+      }}
+      onSearch={() => {
+        //
+      }}
+      searchBarPlaceholder="Search your collection"
+      title="Collections"
+      right={
+        <Flex flexDirection="row">
+          <Styled.ActionButton
+            onPress={() => {
+              //
+            }}
+          >
+            <Icon.ICSort />
+          </Styled.ActionButton>
+          <Styled.ActionButton
+            active={mode === 'list'}
+            onPress={() => {
+              setMode('list')
+            }}
+          >
+            <Icon.Menu />
+          </Styled.ActionButton>
+          <Styled.ActionButton
+            active={mode === 'grid'}
+            onPress={() => {
+              setMode('grid')
+            }}
+          >
+            <Icon.Apps />
+          </Styled.ActionButton>
+        </Flex>
+      }
+    >
+      {mode === 'grid' ? (
+        <Sections {...{ headerHeight, scrollY }} grid />
+      ) : (
+        <Sections {...{ headerHeight, scrollY }} />
+      )}
+    </AnimatedHeaderWithSearchBar>
   )
 }

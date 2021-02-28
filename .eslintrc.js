@@ -54,7 +54,8 @@ module.exports = {
     ],
     'no-use-before-define': 'off',
     'prettier/prettier': 'error',
-    'no-underscore-dangle': ['off']
+    'no-underscore-dangle': ['off'],
+    'react/jsx-curly-newline': 'off'
   },
   settings: {
     'import/resolver': {

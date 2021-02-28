@@ -5,7 +5,7 @@ import { useTheme } from 'styled-components/native'
 
 import { Flex, Icon, Text } from 'src/components/atoms'
 
-type Props = {
+export type Props = {
   goBack?(): void
   right?: ReactNode
   subtitle?: string

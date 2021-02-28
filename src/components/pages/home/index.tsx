@@ -6,14 +6,17 @@ import Animated, {
 } from 'react-native-reanimated'
 
 import { INPUT_HEIGHT } from 'src/components/molecules/input'
+import { AnimatedHeaderWithSearchBar } from 'src/components/templates'
+import { useGeneralContext } from 'src/contexts/general'
 
 import Categories from './categories'
-import Header from './header'
 import MyCollections from './my-collections'
 import RecentBookmark from './recent-bookmark'
 import SearchModal from './search-modal'
 
 export default function (): JSX.Element {
+  const generalContext = useGeneralContext()
+
   const [searchModalVisible, setSearchModalVisible] = useState(false)
 
   const theme = useTheme()
@@ -27,12 +30,14 @@ export default function (): JSX.Element {
   })
 
   return (
-    <>
-      <Header
-        {...{ scrollY }}
-        onChangeHeaderHeight={h => setHeaderHeight(h)}
-        showSearchModal={() => setSearchModalVisible(true)}
-      />
+    <AnimatedHeaderWithSearchBar
+      {...{ scrollY }}
+      onChangeHeaderHeight={h => setHeaderHeight(h)}
+      searchBarAsButton
+      searchBarPlaceholder="Search your bookmark"
+      showSearchModal={() => setSearchModalVisible(true)}
+      title={`Hello, ${generalContext.user?.name}!`}
+    >
       <Animated.ScrollView
         contentContainerStyle={{
           paddingTop: headerHeight + INPUT_HEIGHT + theme.spacing.large * 2
@@ -49,6 +54,6 @@ export default function (): JSX.Element {
         close={() => setSearchModalVisible(false)}
         visible={searchModalVisible}
       />
-    </>
+    </AnimatedHeaderWithSearchBar>
   )
 }

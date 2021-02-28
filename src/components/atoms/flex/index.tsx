@@ -3,7 +3,7 @@ import { StyleSheet, View, ViewProps, ViewStyle } from 'react-native'
 import { DefaultTheme, useTheme } from 'styled-components/native'
 import normalize from 'react-native-normalize'
 
-type Props = PropsWithChildren<
+export type Props = PropsWithChildren<
   Pick<ViewProps, 'style'> &
     Pick<
       ViewStyle,

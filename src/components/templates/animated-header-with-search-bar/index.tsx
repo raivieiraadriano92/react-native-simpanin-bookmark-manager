@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { PropsWithChildren, useState } from 'react'
 import { TouchableOpacity } from 'react-native'
 import { useTheme } from 'styled-components/native'
 import Animated, {
@@ -13,25 +13,35 @@ import { Input } from 'src/components/molecules'
 import Fade from 'src/components/molecules/scrollview-faded/fade'
 import { INPUT_HEIGHT } from 'src/components/molecules/input'
 import { Header } from 'src/components/organisms'
-import { useGeneralContext } from 'src/contexts/general'
+import { Props as HeaderProps } from 'src/components/organisms/header'
 
-type Props = {
-  onChangeHeaderHeight(_: number): void
-  scrollY: Animated.SharedValue<number>
-  showSearchModal(): void
-}
+type Props = HeaderProps &
+  PropsWithChildren<{
+    clearSearch?(): void
+    onChangeHeaderHeight(_: number): void
+    onSearch?(_: string): void
+    scrollY: Animated.SharedValue<number>
+    searchBarAsButton?: boolean
+    searchBarPlaceholder: string
+    showSearchModal?(): void
+  }>
 
 export default function ({
+  children,
+  clearSearch,
   onChangeHeaderHeight,
+  onSearch,
   scrollY,
-  showSearchModal
+  searchBarAsButton = false,
+  searchBarPlaceholder,
+  showSearchModal,
+  ...props
 }: Props): JSX.Element {
-  const generalContext = useGeneralContext()
-
   const theme = useTheme()
 
   const insets = useSafeAreaInsets()
 
+  const [strSearch, setStrSearch] = useState<string>()
   const [headerHeight, setHeaderHeight] = useState(0)
 
   const animatedHeaderStyle = useAnimatedStyle(() => ({
@@ -93,7 +103,7 @@ export default function ({
           animatedHeaderStyle
         ]}
       >
-        <Header title={`Hello, ${generalContext.user?.name}!`} />
+        <Header {...props} />
       </Animated.View>
       <Animated.View
         style={[
@@ -110,23 +120,45 @@ export default function ({
       >
         <Flex paddingHorizontal="medium">
           <Input
+            {...(searchBarAsButton || !strSearch
+              ? {}
+              : {
+                  right: iconProps => (
+                    <TouchableOpacity
+                      onPress={() => {
+                        clearSearch && clearSearch()
+                        setStrSearch(undefined)
+                      }}
+                    >
+                      <Icon.Close {...iconProps} />
+                    </TouchableOpacity>
+                  )
+                })}
             left={iconProps => <Icon.Search {...iconProps} />}
-            placeholder="Search your bookmark"
-          />
-          <TouchableOpacity
-            onPress={showSearchModal}
-            style={{
-              backgroundColor: theme.colors.transparent,
-              position: 'absolute',
-              height: '100%',
-              width: '100%'
+            placeholder={searchBarPlaceholder}
+            onChangeText={value => {
+              onSearch && onSearch(value)
+              setStrSearch(value)
             }}
+            value={strSearch}
           />
+          {searchBarAsButton && (
+            <TouchableOpacity
+              onPress={showSearchModal}
+              style={{
+                backgroundColor: theme.colors.transparent,
+                position: 'absolute',
+                height: '100%',
+                width: '100%'
+              }}
+            />
+          )}
         </Flex>
         <Flex style={{ position: 'absolute', top: '100%', width: '100%' }}>
           <Fade disableInset type="top" />
         </Flex>
       </Animated.View>
+      {children}
     </>
   )
 }
