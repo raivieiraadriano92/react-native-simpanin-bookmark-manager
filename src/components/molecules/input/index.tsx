@@ -3,7 +3,7 @@ import { TextInput, TextInputProps } from 'react-native'
 import { DefaultTheme, useTheme } from 'styled-components/native'
 import normalize from 'react-native-normalize'
 
-import { Flex, Icon, Space, Text } from 'src/components/atoms'
+import { Flex, Icon, Text } from 'src/components/atoms'
 import {
   Props as TextProps,
   styles as TextStyles
@@ -105,12 +105,11 @@ export default function ({
   return (
     <Flex>
       {!!label && (
-        <>
+        <Flex paddingBottom="tiny">
           <Text {...labelColor} type="body3">
             {label}
           </Text>
-          <Space size="tiny" />
-        </>
+        </Flex>
       )}
       <Flex>
         <TextInput
@@ -181,8 +180,7 @@ export default function ({
         )}
       </Flex>
       {!!statusMessage && (
-        <>
-          <Space size="tiny" />
+        <Flex paddingTop="tiny">
           <Text
             {...(status ? {} : { alpha: 0.4 })}
             color={status ? statusColor : 'text'}
@@ -190,7 +188,7 @@ export default function ({
           >
             {statusMessage}
           </Text>
-        </>
+        </Flex>
       )}
     </Flex>
   )
