@@ -23,6 +23,7 @@ export default function ({ data, grid = false }: Props): JSX.Element {
   return (
     <FlatList
       {...{ data }}
+      key={grid ? 0 : 1}
       numColumns={grid ? 2 : 1}
       keyExtractor={(item, index) => `${item.id + index}`}
       renderItem={({ index, item }) => (

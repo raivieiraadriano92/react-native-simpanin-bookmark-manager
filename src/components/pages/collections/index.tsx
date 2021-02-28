@@ -9,7 +9,7 @@ import * as Styled from './styled'
 
 export default function (): JSX.Element {
   const [headerHeight, setHeaderHeight] = useState(0)
-  const [mode, setMode] = useState<'grid' | 'list'>('grid')
+  const [mode, setMode] = useState<'grid' | 'list'>('list')
 
   const scrollY = useSharedValue(0)
 
