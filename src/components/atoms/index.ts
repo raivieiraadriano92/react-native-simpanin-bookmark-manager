@@ -1,3 +1,4 @@
+export { default as Avatar } from './avatar'
 export { default as Flex } from './flex'
 export { default as Icon } from './icon'
 export { default as Line } from './line'

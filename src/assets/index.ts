@@ -1,5 +1,10 @@
 export default {
   images: {
+    avatar: {
+      height: 100,
+      source: require('./images/avatar.png'),
+      width: 66
+    },
     mailConfirmation: {
       height: 243,
       source: require('./images/mail-confirmation.png'),
