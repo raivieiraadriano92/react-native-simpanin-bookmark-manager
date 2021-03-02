@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* ReactNativeSimpaninBookmarkManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReactNativeSimpaninBookmarkManagerTests.m */; };
+		0D389FC27206400BA730FDD7 /* Manrope_ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0F5A28B8AD40CFB899B909 /* Manrope_ExtraLight.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		14C7A09FC2B44D1D972E8667 /* Manrope_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9702D9C48178440FB9964E69 /* Manrope_Light.ttf */; };
 		2230AA68D7531D543C3A0A65 /* libPods-ReactNativeSimpaninBookmarkManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DDFFBADB03E609E94F74DD /* libPods-ReactNativeSimpaninBookmarkManager.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -18,15 +20,13 @@
 		2DCD954D1E0B4F2C00145EB5 /* ReactNativeSimpaninBookmarkManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReactNativeSimpaninBookmarkManagerTests.m */; };
 		3F3B927183C1BFDE15E4730C /* libPods-ReactNativeSimpaninBookmarkManager-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 709322B4CB4847B03477401E /* libPods-ReactNativeSimpaninBookmarkManager-tvOSTests.a */; };
 		66AA55CA960453D62D1551CD /* libPods-ReactNativeSimpaninBookmarkManager-ReactNativeSimpaninBookmarkManagerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04302CD9F489E763F809589C /* libPods-ReactNativeSimpaninBookmarkManager-ReactNativeSimpaninBookmarkManagerTests.a */; };
+		7F3A21F701F3447C894C50A0 /* Manrope_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89C46758441A4EC1BB532A06 /* Manrope_Regular.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		88D4C820AAB24AF6AAA30448 /* Manrope_ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 062981EBCD934D68B6966D72 /* Manrope_ExtraBold.ttf */; };
+		9B3CFFCE5FD849E28F577827 /* Manrope_Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1E6307B3BB343A0B67C43A8 /* Manrope_Medium.ttf */; };
+		ACEE2414B2804E1BB1792C08 /* Manrope-_SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2491FCAF574E4EF1B3105C74 /* Manrope-_SemiBold.ttf */; };
 		B97D6E8C329CFC59037C2862 /* libPods-ReactNativeSimpaninBookmarkManager-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 843CDB9A212DAA2F0BED07C5 /* libPods-ReactNativeSimpaninBookmarkManager-tvOS.a */; };
 		E387AF53F3014D2F846B4B8C /* Manrope_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86B2C6DB7A4245DA88B95550 /* Manrope_Bold.ttf */; };
-		88D4C820AAB24AF6AAA30448 /* Manrope_ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 062981EBCD934D68B6966D72 /* Manrope_ExtraBold.ttf */; };
-		0D389FC27206400BA730FDD7 /* Manrope_ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0F5A28B8AD40CFB899B909 /* Manrope_ExtraLight.ttf */; };
-		14C7A09FC2B44D1D972E8667 /* Manrope_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9702D9C48178440FB9964E69 /* Manrope_Light.ttf */; };
-		9B3CFFCE5FD849E28F577827 /* Manrope_Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1E6307B3BB343A0B67C43A8 /* Manrope_Medium.ttf */; };
-		7F3A21F701F3447C894C50A0 /* Manrope_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89C46758441A4EC1BB532A06 /* Manrope_Regular.ttf */; };
-		ACEE2414B2804E1BB1792C08 /* Manrope-_SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2491FCAF574E4EF1B3105C74 /* Manrope-_SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +53,9 @@
 		00E356F21AD99517003FC87E /* ReactNativeSimpaninBookmarkManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactNativeSimpaninBookmarkManagerTests.m; sourceTree = "<group>"; };
 		0116EC7885A238E83C14D225 /* Pods-ReactNativeSimpaninBookmarkManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeSimpaninBookmarkManager.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeSimpaninBookmarkManager/Pods-ReactNativeSimpaninBookmarkManager.release.xcconfig"; sourceTree = "<group>"; };
 		04302CD9F489E763F809589C /* libPods-ReactNativeSimpaninBookmarkManager-ReactNativeSimpaninBookmarkManagerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeSimpaninBookmarkManager-ReactNativeSimpaninBookmarkManagerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		062981EBCD934D68B6966D72 /* Manrope_ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Manrope_ExtraBold.ttf; path = ../src/assets/fonts/Manrope_ExtraBold.ttf; sourceTree = "<group>"; };
 		08A119D75CE8E609B006BD1B /* Pods-ReactNativeSimpaninBookmarkManager-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeSimpaninBookmarkManager-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeSimpaninBookmarkManager-tvOSTests/Pods-ReactNativeSimpaninBookmarkManager-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* ReactNativeSimpaninBookmarkManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactNativeSimpaninBookmarkManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* simpan.in.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = simpan.in.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ReactNativeSimpaninBookmarkManager/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ReactNativeSimpaninBookmarkManager/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ReactNativeSimpaninBookmarkManager/Images.xcassets; sourceTree = "<group>"; };
@@ -62,6 +63,7 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ReactNativeSimpaninBookmarkManager/main.m; sourceTree = "<group>"; };
 		15DDFFBADB03E609E94F74DD /* libPods-ReactNativeSimpaninBookmarkManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeSimpaninBookmarkManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		205143F4567171A01EFE4F66 /* Pods-ReactNativeSimpaninBookmarkManager-tvOS.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeSimpaninBookmarkManager-tvOS.staging.xcconfig"; path = "Target Support Files/Pods-ReactNativeSimpaninBookmarkManager-tvOS/Pods-ReactNativeSimpaninBookmarkManager-tvOS.staging.xcconfig"; sourceTree = "<group>"; };
+		2491FCAF574E4EF1B3105C74 /* Manrope-_SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Manrope-_SemiBold.ttf"; path = "../src/assets/fonts/Manrope-_SemiBold.ttf"; sourceTree = "<group>"; };
 		28150C2DF1A36FF2D38C3C37 /* Pods-ReactNativeSimpaninBookmarkManager.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeSimpaninBookmarkManager.staging.xcconfig"; path = "Target Support Files/Pods-ReactNativeSimpaninBookmarkManager/Pods-ReactNativeSimpaninBookmarkManager.staging.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* ReactNativeSimpaninBookmarkManager-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ReactNativeSimpaninBookmarkManager-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* ReactNativeSimpaninBookmarkManager-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ReactNativeSimpaninBookmarkManager-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,21 +72,19 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ReactNativeSimpaninBookmarkManager/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83EAB2C8388818EE040574AD /* Pods-ReactNativeSimpaninBookmarkManager-ReactNativeSimpaninBookmarkManagerTests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeSimpaninBookmarkManager-ReactNativeSimpaninBookmarkManagerTests.staging.xcconfig"; path = "Target Support Files/Pods-ReactNativeSimpaninBookmarkManager-ReactNativeSimpaninBookmarkManagerTests/Pods-ReactNativeSimpaninBookmarkManager-ReactNativeSimpaninBookmarkManagerTests.staging.xcconfig"; sourceTree = "<group>"; };
 		843CDB9A212DAA2F0BED07C5 /* libPods-ReactNativeSimpaninBookmarkManager-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeSimpaninBookmarkManager-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		86B2C6DB7A4245DA88B95550 /* Manrope_Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Manrope_Bold.ttf; path = ../src/assets/fonts/Manrope_Bold.ttf; sourceTree = "<group>"; };
+		89C46758441A4EC1BB532A06 /* Manrope_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Manrope_Regular.ttf; path = ../src/assets/fonts/Manrope_Regular.ttf; sourceTree = "<group>"; };
+		8A0F5A28B8AD40CFB899B909 /* Manrope_ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Manrope_ExtraLight.ttf; path = ../src/assets/fonts/Manrope_ExtraLight.ttf; sourceTree = "<group>"; };
+		9702D9C48178440FB9964E69 /* Manrope_Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Manrope_Light.ttf; path = ../src/assets/fonts/Manrope_Light.ttf; sourceTree = "<group>"; };
 		C1C7B5E9CB3421DB97280114 /* Pods-ReactNativeSimpaninBookmarkManager-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeSimpaninBookmarkManager-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeSimpaninBookmarkManager-tvOSTests/Pods-ReactNativeSimpaninBookmarkManager-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C441DEE9D383864B0BAC02F1 /* Pods-ReactNativeSimpaninBookmarkManager-ReactNativeSimpaninBookmarkManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeSimpaninBookmarkManager-ReactNativeSimpaninBookmarkManagerTests.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeSimpaninBookmarkManager-ReactNativeSimpaninBookmarkManagerTests/Pods-ReactNativeSimpaninBookmarkManager-ReactNativeSimpaninBookmarkManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7DF241BD963105B7C10EC94 /* Pods-ReactNativeSimpaninBookmarkManager-tvOSTests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeSimpaninBookmarkManager-tvOSTests.staging.xcconfig"; path = "Target Support Files/Pods-ReactNativeSimpaninBookmarkManager-tvOSTests/Pods-ReactNativeSimpaninBookmarkManager-tvOSTests.staging.xcconfig"; sourceTree = "<group>"; };
 		DCC16688C21CF9053D39A74D /* Pods-ReactNativeSimpaninBookmarkManager-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeSimpaninBookmarkManager-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeSimpaninBookmarkManager-tvOS/Pods-ReactNativeSimpaninBookmarkManager-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		E1E6307B3BB343A0B67C43A8 /* Manrope_Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Manrope_Medium.ttf; path = ../src/assets/fonts/Manrope_Medium.ttf; sourceTree = "<group>"; };
 		E926F7BB8183775F443F7B95 /* Pods-ReactNativeSimpaninBookmarkManager-ReactNativeSimpaninBookmarkManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeSimpaninBookmarkManager-ReactNativeSimpaninBookmarkManagerTests.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeSimpaninBookmarkManager-ReactNativeSimpaninBookmarkManagerTests/Pods-ReactNativeSimpaninBookmarkManager-ReactNativeSimpaninBookmarkManagerTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		FDCF309CB8F3B5CE0E4C4B64 /* Pods-ReactNativeSimpaninBookmarkManager-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeSimpaninBookmarkManager-tvOS.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeSimpaninBookmarkManager-tvOS/Pods-ReactNativeSimpaninBookmarkManager-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		86B2C6DB7A4245DA88B95550 /* Manrope_Bold.ttf */ = {isa = PBXFileReference; name = "Manrope_Bold.ttf"; path = "../src/assets/fonts/Manrope_Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		062981EBCD934D68B6966D72 /* Manrope_ExtraBold.ttf */ = {isa = PBXFileReference; name = "Manrope_ExtraBold.ttf"; path = "../src/assets/fonts/Manrope_ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		8A0F5A28B8AD40CFB899B909 /* Manrope_ExtraLight.ttf */ = {isa = PBXFileReference; name = "Manrope_ExtraLight.ttf"; path = "../src/assets/fonts/Manrope_ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		9702D9C48178440FB9964E69 /* Manrope_Light.ttf */ = {isa = PBXFileReference; name = "Manrope_Light.ttf"; path = "../src/assets/fonts/Manrope_Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		E1E6307B3BB343A0B67C43A8 /* Manrope_Medium.ttf */ = {isa = PBXFileReference; name = "Manrope_Medium.ttf"; path = "../src/assets/fonts/Manrope_Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		89C46758441A4EC1BB532A06 /* Manrope_Regular.ttf */ = {isa = PBXFileReference; name = "Manrope_Regular.ttf"; path = "../src/assets/fonts/Manrope_Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		2491FCAF574E4EF1B3105C74 /* Manrope-_SemiBold.ttf */ = {isa = PBXFileReference; name = "Manrope-_SemiBold.ttf"; path = "../src/assets/fonts/Manrope-_SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +140,20 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		10ADE6874EAD4AF3A4347E62 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				86B2C6DB7A4245DA88B95550 /* Manrope_Bold.ttf */,
+				062981EBCD934D68B6966D72 /* Manrope_ExtraBold.ttf */,
+				8A0F5A28B8AD40CFB899B909 /* Manrope_ExtraLight.ttf */,
+				9702D9C48178440FB9964E69 /* Manrope_Light.ttf */,
+				E1E6307B3BB343A0B67C43A8 /* Manrope_Medium.ttf */,
+				89C46758441A4EC1BB532A06 /* Manrope_Regular.ttf */,
+				2491FCAF574E4EF1B3105C74 /* Manrope-_SemiBold.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* ReactNativeSimpaninBookmarkManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,7 +207,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* ReactNativeSimpaninBookmarkManager.app */,
+				13B07F961A680F5B00A75B9A /* simpan.in.app */,
 				00E356EE1AD99517003FC87E /* ReactNativeSimpaninBookmarkManagerTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* ReactNativeSimpaninBookmarkManager-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* ReactNativeSimpaninBookmarkManager-tvOSTests.xctest */,
@@ -219,21 +233,6 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		10ADE6874EAD4AF3A4347E62 /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				86B2C6DB7A4245DA88B95550 /* Manrope_Bold.ttf */,
-				062981EBCD934D68B6966D72 /* Manrope_ExtraBold.ttf */,
-				8A0F5A28B8AD40CFB899B909 /* Manrope_ExtraLight.ttf */,
-				9702D9C48178440FB9964E69 /* Manrope_Light.ttf */,
-				E1E6307B3BB343A0B67C43A8 /* Manrope_Medium.ttf */,
-				89C46758441A4EC1BB532A06 /* Manrope_Regular.ttf */,
-				2491FCAF574E4EF1B3105C74 /* Manrope-_SemiBold.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -276,7 +275,7 @@
 			);
 			name = ReactNativeSimpaninBookmarkManager;
 			productName = ReactNativeSimpaninBookmarkManager;
-			productReference = 13B07F961A680F5B00A75B9A /* ReactNativeSimpaninBookmarkManager.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* simpan.in.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* ReactNativeSimpaninBookmarkManager-tvOS */ = {
@@ -763,7 +762,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = ReactNativeSimpaninBookmarkManager;
+				PRODUCT_NAME = simpan.in;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -860,7 +859,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = ReactNativeSimpaninBookmarkManager;
+				PRODUCT_NAME = simpan.in;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -882,7 +881,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = ReactNativeSimpaninBookmarkManager;
+				PRODUCT_NAME = simpan.in;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
