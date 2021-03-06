@@ -2,11 +2,11 @@ import React from 'react'
 
 import { render } from 'test/utils'
 
-import Flex from './index'
+import Button from './index'
 
-describe('<Flex />', () => {
+describe('<Button />', () => {
   it('should render correctly', () => {
-    const { toJSON, unmount } = render(<Flex />)
+    const { toJSON, unmount } = render(<Button />)
 
     expect(toJSON()).toMatchSnapshot()
 

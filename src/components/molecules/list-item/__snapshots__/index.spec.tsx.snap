@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Flex /> should render correctly 1`] = `
+exports[`<ListItem /> should render correctly 1`] = `
 <RNCSafeAreaProvider
   onInsetsChange={[Function]}
   style={

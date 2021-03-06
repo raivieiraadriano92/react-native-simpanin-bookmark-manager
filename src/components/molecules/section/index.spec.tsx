@@ -2,11 +2,11 @@ import React from 'react'
 
 import { render } from 'test/utils'
 
-import Flex from './index'
+import Section from './index'
 
-describe('<Flex />', () => {
+describe('<Section />', () => {
   it('should render correctly', () => {
-    const { toJSON, unmount } = render(<Flex />)
+    const { toJSON, unmount } = render(<Section title="test" />)
 
     expect(toJSON()).toMatchSnapshot()
 
