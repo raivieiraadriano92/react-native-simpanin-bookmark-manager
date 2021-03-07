@@ -12,11 +12,11 @@ import {
   ResetPassword
 } from 'src/components/pages'
 
-import TabNavigator from './tab-navigator'
+import LoggedNavigator from './logged-navigator'
 
 export type RootStackNavigator = {
   CreateNewPassword: undefined
-  Home: undefined
+  LoggedNavigator: undefined
   LogIn: undefined
   Onboarding: undefined
   Register: undefined
@@ -33,7 +33,7 @@ export default function (): JSX.Element {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName="LoggedNavigator"
         screenOptions={{
           contentStyle: {
             backgroundColor: theme.colors.systemBackgroundPrimary
@@ -43,7 +43,7 @@ export default function (): JSX.Element {
         }}
       >
         <Stack.Screen component={CreateNewPassword} name="CreateNewPassword" />
-        <Stack.Screen component={TabNavigator} name="Home" />
+        <Stack.Screen component={LoggedNavigator} name="LoggedNavigator" />
         <Stack.Screen component={LogIn} name="LogIn" />
         <Stack.Screen component={Onboarding} name="Onboarding" />
         <Stack.Screen component={Register} name="Register" />

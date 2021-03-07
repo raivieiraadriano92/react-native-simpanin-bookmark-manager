@@ -7,11 +7,12 @@ import { StackNavigationProp } from '@react-navigation/stack'
 
 import Assets from 'src/assets'
 import { Avatar, Flex, Icon, Line, Text } from 'src/components/atoms'
-import { Button, ScrollViewFaded, Section } from 'src/components/molecules'
+import { ScrollViewFaded, Section } from 'src/components/molecules'
 import { Header } from 'src/components/organisms'
 import { useGeneralContext } from 'src/contexts/general'
-import { RootStackNavigator } from 'src/navigator'
-import { TabNavigator } from 'src/navigator/tab-navigator'
+import { RootStackNavigator } from 'src/navigator/'
+import { LoggedStackNavigator } from 'src/navigator/logged-navigator'
+import { TabNavigator } from 'src/navigator/logged-navigator/tab-navigator'
 import { hexToRgba } from 'src/utils'
 import normalize from 'react-native-normalize'
 
@@ -19,7 +20,10 @@ export default function (): JSX.Element {
   const generalContext = useGeneralContext()
 
   const navigation = useNavigation<BottomTabNavigationProp<TabNavigator>>()
-  const rootNavigation = navigation.dangerouslyGetParent<
+  const loggedNavigation = navigation.dangerouslyGetParent<
+    StackNavigationProp<LoggedStackNavigator>
+  >()
+  const rootNavigation = loggedNavigation.dangerouslyGetParent<
     StackNavigationProp<RootStackNavigator>
   >()
 
@@ -44,24 +48,24 @@ export default function (): JSX.Element {
         }}
         disableTopInset
       >
-        <Flex alignItems="center" flexDirection="row" paddingBottom="large">
-          <Avatar source={Assets.images.avatar.source} />
-          <Flex flex paddingLeft="small">
-            <Text type="subtitle1">{generalContext.user?.name}</Text>
-            <Flex paddingTop="tinyest">
-              <Text alpha={0.6} type="body2">
-                {generalContext.user?.name}
-              </Text>
+        <TouchableOpacity
+          onPress={() => {
+            loggedNavigation.navigate('EditProfile')
+          }}
+        >
+          <Flex alignItems="center" flexDirection="row" paddingBottom="large">
+            <Avatar source={Assets.images.avatar.source} />
+            <Flex flex paddingLeft="small">
+              <Text type="subtitle1">{generalContext.user?.name}</Text>
+              <Flex paddingTop="tinyest">
+                <Text alpha={0.6} type="body2">
+                  {generalContext.user?.name}
+                </Text>
+              </Flex>
             </Flex>
-          </Flex>
-          <TouchableOpacity
-            onPress={() => {
-              //
-            }}
-          >
             <Icon.Edit alpha={0.6} color="text" />
-          </TouchableOpacity>
-        </Flex>
+          </Flex>
+        </TouchableOpacity>
         <Section title="Data" titleType="subtitle2">
           <TouchableOpacity
             onPress={() => {
@@ -226,7 +230,7 @@ export default function (): JSX.Element {
                     borderRadius: normalize(8)
                   }}
                 >
-                  <Icon.ShieldSafe color="blue" />
+                  <Icon.Moon color="blue" />
                 </Flex>
                 <Text flexWrap="wrap" type="body1">
                   Dark Mode

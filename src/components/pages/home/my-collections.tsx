@@ -6,7 +6,7 @@ import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs'
 
 import { Flex, Icon, Text } from 'src/components/atoms'
 import { Button } from 'src/components/molecules'
-import { TabNavigator } from 'src/navigator/tab-navigator'
+import { TabNavigator } from 'src/navigator/logged-navigator/tab-navigator'
 import { hexToRgba } from 'src/utils'
 
 const collections: {

@@ -36,7 +36,7 @@ export default function ({
       style={{ flex: 1 }}
     >
       <Flex flex>
-        <ScrollView {...props}>
+        <ScrollView showsVerticalScrollIndicator={false} {...props}>
           <Flex style={{ height: heightTop }} />
           {children}
           <Flex style={{ height: heightBottom }} />

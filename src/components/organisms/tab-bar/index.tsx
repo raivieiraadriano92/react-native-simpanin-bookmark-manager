@@ -9,7 +9,7 @@ import { useTheme } from 'styled-components/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 import { Flex, Icon, Text } from 'src/components/atoms'
-import { TabNavigator } from 'src/navigator/tab-navigator'
+import { TabNavigator } from 'src/navigator/logged-navigator/tab-navigator'
 
 function getTabInfo({
   focused,

@@ -33,6 +33,7 @@ import ICRadioOn from './sources/ic-radio-on'
 import ICSort from './sources/ic-sort'
 import Logo from './sources/logo'
 import Menu from './sources/menu'
+import Moon from './sources/moon'
 import MoreHorizontal from './sources/more-horizontal'
 import MultipleDocuments from './sources/multiple-documents'
 import PersonAdd from './sources/person-add'
@@ -84,6 +85,7 @@ export default {
   ICSort,
   Logo,
   Menu,
+  Moon,
   MoreHorizontal,
   MultipleDocuments,
   PersonAdd,
