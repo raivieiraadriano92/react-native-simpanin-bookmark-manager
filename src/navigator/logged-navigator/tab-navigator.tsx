@@ -24,7 +24,7 @@ export default function (): JSX.Element {
 
   return (
     <Tab.Navigator
-      initialRouteName="Settings"
+      initialRouteName="Home"
       sceneContainerStyle={{
         backgroundColor: theme.colors.systemBackgroundPrimary
       }}

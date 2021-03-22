@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native'
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs'
 
 import { Flex, Icon, Text } from 'src/components/atoms'
-import { Button } from 'src/components/molecules'
+import { Button, Section } from 'src/components/molecules'
 import { TabNavigator } from 'src/navigator/logged-navigator/tab-navigator'
 import { hexToRgba } from 'src/utils'
 
@@ -59,66 +59,66 @@ export default function (): JSX.Element {
   const theme = useTheme()
 
   return (
-    <>
-      <Flex
-        alignItems="center"
-        flexDirection="row"
-        justifyContent="space-between"
-        paddingTop="large"
-        paddingHorizontal="medium"
-        paddingBottom="small"
-      >
-        <Text type="h4">My Collections</Text>
-        <Button
-          onPress={() => {
-            navigation.jumpTo('Collections')
-          }}
-          size="small"
-          title="See All"
-          type="tertiary"
-        />
-      </Flex>
-      <FlatList
-        contentContainerStyle={{
-          paddingHorizontal: theme.spacing.medium
-        }}
-        data={collections}
-        keyExtractor={item => item.key}
-        horizontal
-        renderItem={({ item }) => (
-          <TouchableOpacity
+    <Flex paddingVertical="large">
+      <Section
+        actions={[
+          <Button
+            key="0"
             onPress={() => {
-              //
+              navigation.jumpTo('Collections')
             }}
-          >
-            <Flex paddingRight="small">
-              <Flex
-                style={{
-                  alignItems: 'center',
-                  backgroundColor: hexToRgba(theme.colors.yellow, 0.4),
-                  borderRadius: 18,
-                  height: 112,
-                  justifyContent: 'center',
-                  marginBottom: theme.spacing.small,
-                  width: 114
-                }}
-              >
-                <Icon.ColoredFolder size={48} />
-                <Flex style={{ left: '50%', position: 'absolute', top: '50%' }}>
-                  <Text type="h3">{item.emoji}</Text>
+            size="small"
+            title="See All"
+            type="tertiary"
+          />
+        ]}
+        title="My Collections"
+        titlePaddingHorizontal="medium"
+      >
+        <FlatList
+          contentContainerStyle={{
+            paddingHorizontal: theme.spacing.medium
+          }}
+          data={collections}
+          keyExtractor={item => item.key}
+          horizontal
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              onPress={() => {
+                //
+              }}
+            >
+              <Flex paddingRight="small">
+                <Flex
+                  style={{
+                    alignItems: 'center',
+                    backgroundColor: hexToRgba(theme.colors.yellow, 0.4),
+                    borderRadius: 18,
+                    height: 112,
+                    justifyContent: 'center',
+                    marginBottom: theme.spacing.small,
+                    width: 114
+                  }}
+                >
+                  <Icon.ColoredFolder size={48} />
+                  <Flex
+                    style={{ left: '50%', position: 'absolute', top: '50%' }}
+                  >
+                    <Text type="h3">{item.emoji}</Text>
+                  </Flex>
+                </Flex>
+                <Text type="body1">{item.name}</Text>
+                <Flex paddingTop="tinyest">
+                  <Text alpha={0.6} type="body2">
+                    {`${item.count} items`}
+                  </Text>
                 </Flex>
               </Flex>
-              <Text type="body1">{item.name}</Text>
-              <Flex paddingTop="tinyest">
-                <Text alpha={0.6} type="body2">
-                  {`${item.count} items`}
-                </Text>
-              </Flex>
-            </Flex>
-          </TouchableOpacity>
-        )}
-        showsHorizontalScrollIndicator={false}
-      />
-    </>
+            </TouchableOpacity>
+          )}
+          showsHorizontalScrollIndicator={false}
+        />
+      </Section>
+    </Flex>
   )
 }

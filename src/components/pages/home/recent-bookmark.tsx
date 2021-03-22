@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Flex, Icon, Text } from 'src/components/atoms'
-import { ListItem } from 'src/components/molecules/'
+import { ListItem, Section } from 'src/components/molecules/'
 
 const recent: {
   collection: string
@@ -43,10 +43,7 @@ const recent: {
 
 export default function (): JSX.Element {
   return (
-    <>
-      <Flex paddingTop="large" paddingHorizontal="medium" paddingBottom="small">
-        <Text type="h4">Recent bookmark</Text>
-      </Flex>
+    <Section title="Recent bookmark" titlePaddingHorizontal="medium">
       <Flex paddingHorizontal="medium">
         {recent.map((item, index) => (
           <ListItem
@@ -77,6 +74,6 @@ export default function (): JSX.Element {
           />
         ))}
       </Flex>
-    </>
+    </Section>
   )
 }
