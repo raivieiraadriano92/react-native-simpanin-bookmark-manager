@@ -5,7 +5,12 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack'
 // ----- AuthStack -----
 
 export type AuthStackParamList = {
+  LogIn: undefined
   Onboarding: undefined
+  NewPassword: undefined
+  Register: undefined
+  ResetPassword: undefined
+  ResetPasswordConfirmation: undefined
 }
 
 export type AuthStackScreenComponentProps<RouteName extends keyof AuthStackParamList> =
