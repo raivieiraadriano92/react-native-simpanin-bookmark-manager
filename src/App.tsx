@@ -4,7 +4,7 @@ import { NativeBaseProvider } from 'native-base'
 import { enableFreeze } from 'react-native-screens'
 import { theme } from 'src/theme'
 
-import { Navigation } from './navigation/Navigation'
+import { Navigation } from './navigation'
 
 enableFreeze(true)
 
@@ -14,7 +14,10 @@ const initialWindowMetrics = {
 }
 
 export const App: FunctionComponent = () => (
-  <NativeBaseProvider initialWindowMetrics={initialWindowMetrics} theme={theme}>
+  <NativeBaseProvider
+    config={{ suppressColorAccessibilityWarning: true }}
+    initialWindowMetrics={initialWindowMetrics}
+    theme={theme}>
     <Navigation />
   </NativeBaseProvider>
 )
