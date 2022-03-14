@@ -17,7 +17,11 @@ const NativeStackNavigator = createNativeStackNavigator<AuthStackParamList>()
 export const AuthStackNavigator: FunctionComponent = () => (
   <NativeStackNavigator.Navigator initialRouteName="Onboarding">
     <NativeStackNavigator.Screen component={LogInScreen} name="LogIn" />
-    <NativeStackNavigator.Screen component={OnboardingScreen} name="Onboarding" />
+    <NativeStackNavigator.Screen
+      component={OnboardingScreen}
+      name="Onboarding"
+      options={{ headerShown: false }}
+    />
     <NativeStackNavigator.Screen component={NewPasswordScreen} name="NewPassword" />
     <NativeStackNavigator.Screen component={RegisterScreen} name="Register" />
     <NativeStackNavigator.Screen component={ResetPasswordScreen} name="ResetPassword" />

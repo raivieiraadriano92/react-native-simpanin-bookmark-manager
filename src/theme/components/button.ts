@@ -1,15 +1,23 @@
 export const Button = {
   defaultProps: {
-    // size: 'lg'
+    colorScheme: 'indigo'
   },
   sizes: {
     sm: {
-      //   borderRadius: 'xl',
+      borderRadius: 'lg',
+      h: 8,
       _text: {
-        // lineHeight: 'md',
+        fontSize: 'xs',
+        fontWeight: 'medium'
       }
     },
-    md: {},
-    lg: {}
+    md: {
+      borderRadius: '2xl',
+      h: 12,
+      _text: {
+        fontSize: 'md',
+        fontWeight: 'medium'
+      }
+    }
   }
 }
