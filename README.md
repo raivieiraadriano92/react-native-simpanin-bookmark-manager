@@ -16,7 +16,7 @@
   </a>
 </p>
 
-![alt text](./assets/readme-banner.png)
+![](./assets/readme-banner.png?raw=true)
 
 # simpan.in - React Native Bookmark Manager
 
