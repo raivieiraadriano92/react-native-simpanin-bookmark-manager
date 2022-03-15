@@ -88,9 +88,9 @@ $ yarn start
 ## Author
 
 <a href="https://www.linkedin.com/in/raivieiraadriano/">
- <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/14861463?v=4" width="100px;" alt="Thiago Marinho"/>
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/14861463?v=4" width="100px;" alt="Raí Adriano"/>
  <br />
- <sub><b>Raí Vieira Adriano</b></sub></a> <a href="https://www.linkedin.com/in/raivieiraadriano/" title="Rocketseat"></a>
+ <sub><b>Raí Adriano</b></sub></a> <a href="https://www.linkedin.com/in/raivieiraadriano/" title="Rocketseat"></a>
  <br />
 
 [![Linkedin Badge](https://img.shields.io/badge/-Raí-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/raivieiraadriano/)](https://www.linkedin.com/in/raivieiraadriano/)
