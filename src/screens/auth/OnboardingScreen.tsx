@@ -162,7 +162,7 @@ export const OnboardingScreen: AuthStackScreenComponent<'Onboarding'> = ({ navig
             <Heading fontSize="2xl" fontWeight="semibold" lineHeight="md">
               {slide.title}
             </Heading>
-            <Text fontSize="sm" fontWeight="normal" lineHeight="lg" opacity={0.8}>
+            <Text fontSize="sm" fontWeight="normal" lineHeight="lg" _light={{ opacity: 0.6 }}>
               {slide.description}
             </Text>
           </VStack>
