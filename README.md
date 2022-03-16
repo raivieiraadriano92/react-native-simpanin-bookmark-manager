@@ -20,19 +20,19 @@
 
 # simpan.in - React Native Bookmark Manager
 
-IMPORTANT: simpan.in is a UI Kit built with React Native and is based on [Simpanin Bookmark Manager App Ui Kit](https://ui8.net/smplsprfct/products/simpanin-bookmark-manager-app-ui-kit) to figma, so any figma file will be shared, if need the figma file feel free to buy from the author.
+IMPORTANT: simpan.in is a UI Kit built with React Native and is based on [Simpanin Bookmark Manager App Ui Kit](https://ui8.net/smplsprfct/products/simpanin-bookmark-manager-app-ui-kit) to figma, then any figma file will be shared, if you need the figma file feel free to buy from the author.
 
-## Purpose
+## Goal
 
-My purpose with this project is learn and improve my skills as a developer and at the same time build something cool that can be used to help other developers start their own projects.
+My goal with this project is to learn and improve my skills as a developer while building something cool that can be used to help other developers start their own projects.
 
-So feel free to fork it and use it for your own purpose.
+So feel free to fork it and use it for your own goal.
 
-This is the first of other UI Kits that I pretend to built using some cool technology like React Native, SwiftUI, Flutter and any other.
+This is the first of other UI Kits I intend to build using some cool technology like React Native, SwiftUI, Flutter and whatever.
 
 ## Features
 
-Basically I pretend to built a completely functional app, this include UI, integration with some service like Firebase or Supabase (thinking about...) and CI/CD.
+Basically I intend to build a fully functional app, this includes UI, integration with some service like Firebase or Supabase (thinking about...) and CI/CD.
 
 |                            Feature | UI  | Integration |
 | ---------------------------------: | :-- | :---------- |
@@ -55,7 +55,7 @@ Basically I pretend to built a completely functional app, this include UI, integ
 
 ## Status
 
-This project is in `development`, so probably this doc will change.
+This project is in `development`, so this doc will probably change.
 
 ---
 
