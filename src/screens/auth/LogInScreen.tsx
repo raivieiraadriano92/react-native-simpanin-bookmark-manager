@@ -35,7 +35,7 @@ export const LogInScreen: AuthStackScreenComponent<'LogIn'> = ({ navigation }) =
 
   return (
     <ScrollView _contentContainerStyle={{ flexGrow: 1, p: 6 }}>
-      <VStack flex={1} space={10}>
+      <VStack flex={1} safeAreaBottom space={10}>
         <VStack space={4}>
           <Heading fontSize="2xl" fontWeight="semibold" lineHeight="md">
             Welcome Back!
@@ -79,11 +79,8 @@ export const LogInScreen: AuthStackScreenComponent<'LogIn'> = ({ navigation }) =
               />
             </FormControl>
           </VStack>
-          <VStack safeAreaBottom space={4}>
+          <VStack space={4}>
             <Button onPress={onSubmit}>Log In</Button>
-            <Button onPress={goTo.registerScreen} variant="outline">
-              Register
-            </Button>
             <Button onPress={goTo.resetPasswordScreen} size="sm" variant="ghost">
               Reset password
             </Button>
