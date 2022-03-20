@@ -1,7 +1,4 @@
 export const Button = {
-  defaultProps: {
-    colorScheme: 'indigo'
-  },
   sizes: {
     sm: {
       borderRadius: 'lg',
