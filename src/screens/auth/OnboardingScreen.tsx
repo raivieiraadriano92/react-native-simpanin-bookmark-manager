@@ -75,7 +75,7 @@ const AnimatedDot: FunctionComponent<AnimatedDotProps> = ({ index, scrollX }) =>
   return <AnimatedBox borderRadius="full" h="6px" style={animatedStyle} w="6px" />
 }
 
-const Logo = () => {
+const Logo: FunctionComponent = () => {
   const theme = useTheme()
 
   const color = useColorModeValue(theme.colors.indigo[500], theme.colors.white)
@@ -113,7 +113,23 @@ const Logo = () => {
   )
 }
 
+const SlideItem: FunctionComponent<Slide> = ({ description, image, title }) => (
+  <VStack key={title} px={6} space={4} w={`${SCREEN_WIDTH}px`}>
+    <Center flex={1}>
+      <Image alt={title} h="full" resizeMode="contain" source={image} />
+    </Center>
+    <Heading fontSize="2xl" fontWeight="semibold" lineHeight="md">
+      {title}
+    </Heading>
+    <Text fontSize="sm" fontWeight="normal" lineHeight="lg" _light={{ opacity: 0.6 }}>
+      {description}
+    </Text>
+  </VStack>
+)
+
 export const OnboardingScreen: AuthStackScreenComponent<'Onboarding'> = ({ navigation }) => {
+  const colorMode = useColorMode()
+
   const goTo = useMemo(
     () => ({
       logInScreen: () => navigation.navigate('LogIn'),
@@ -122,15 +138,13 @@ export const OnboardingScreen: AuthStackScreenComponent<'Onboarding'> = ({ navig
     [navigation]
   )
 
+  const theme = useTheme()
+
   const scrollX = useSharedValue(0)
 
   const scrollHandler = useAnimatedScrollHandler((event) => {
     scrollX.value = event.contentOffset.x
   })
-
-  const colorMode = useColorMode()
-
-  const theme = useTheme()
 
   const animatedStyle = useAnimatedStyle(() => ({
     backgroundColor:
@@ -155,17 +169,7 @@ export const OnboardingScreen: AuthStackScreenComponent<'Onboarding'> = ({ navig
         scrollEventThrottle={32}
         showsHorizontalScrollIndicator={false}>
         {slides.map((slide) => (
-          <VStack key={slide.title} px={6} space={4} w={`${SCREEN_WIDTH}px`}>
-            <Center flex={1}>
-              <Image alt={slide.title} h="full" resizeMode="contain" source={slide.image} />
-            </Center>
-            <Heading fontSize="2xl" fontWeight="semibold" lineHeight="md">
-              {slide.title}
-            </Heading>
-            <Text fontSize="sm" fontWeight="normal" lineHeight="lg" _light={{ opacity: 0.6 }}>
-              {slide.description}
-            </Text>
-          </VStack>
+          <SlideItem key={slide.title} {...slide} />
         ))}
       </Animated.ScrollView>
       <HStack p={6} pb={10} space={2}>
