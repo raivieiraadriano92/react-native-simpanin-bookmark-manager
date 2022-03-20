@@ -23,15 +23,20 @@ export const AuthStackNavigator: FunctionComponent = () => {
     theme.colors.darkBackground
   )
 
+  const headerTintColor = useColorModeValue(theme.colors.darkText, theme.colors.lightText)
+
   return (
     <NativeStackNavigator.Navigator
       initialRouteName="Onboarding"
-      screenOptions={{ contentStyle: { backgroundColor } }}>
-      <NativeStackNavigator.Screen
-        component={LogInScreen}
-        name="LogIn"
-        options={{ headerShown: false }}
-      />
+      screenOptions={{
+        contentStyle: { backgroundColor },
+        headerShadowVisible: false,
+        headerStyle: { backgroundColor },
+        headerTintColor,
+        headerBackTitleVisible: false,
+        title: ''
+      }}>
+      <NativeStackNavigator.Screen component={LogInScreen} name="LogIn" />
       <NativeStackNavigator.Screen
         component={OnboardingScreen}
         name="Onboarding"
