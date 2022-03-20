@@ -48,6 +48,7 @@ export const AuthStackNavigator: FunctionComponent = () => {
       <NativeStackNavigator.Screen
         component={ResetPasswordConfirmationScreen}
         name="ResetPasswordConfirmation"
+        options={{ headerShown: false, presentation: 'modal' }}
       />
     </NativeStackNavigator.Navigator>
   )
