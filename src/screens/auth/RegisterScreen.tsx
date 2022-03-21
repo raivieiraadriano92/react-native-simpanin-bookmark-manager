@@ -1,33 +1,20 @@
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useRef } from 'react'
 
-import {
-  Button,
-  FormControl,
-  Heading,
-  IconButton,
-  Input,
-  ScrollView,
-  Text,
-  VStack
-} from 'native-base'
+import { Button, FormControl, Heading, Input, ScrollView, Text, VStack } from 'native-base'
 import { TextInput } from 'react-native'
-import { Icons } from 'src/components'
+import { InputPassword } from 'src/components'
 import { AuthStackScreenComponent } from 'src/navigation'
 
 export const RegisterScreen: AuthStackScreenComponent<'Register'> = ({ navigation }) => {
   const refEmailInput = useRef<TextInput>()
 
-  const refPasswordInput = useRef<TextInput>()
-
-  const [showPassword, setShowPassword] = useState(false)
+  const refPasswordInput = useRef<TextInput>(null)
 
   const focusEmailInput = useCallback(() => refEmailInput.current?.focus(), [])
 
   const focusPasswordInput = useCallback(() => refPasswordInput.current?.focus(), [])
 
   const onSubmit = useCallback(() => {}, [])
-
-  const toggleShowPassword = useCallback(() => setShowPassword((prev) => !prev), [])
 
   return (
     <ScrollView _contentContainerStyle={{ flexGrow: 1, p: 6 }}>
@@ -69,20 +56,11 @@ export const RegisterScreen: AuthStackScreenComponent<'Register'> = ({ navigatio
             </FormControl>
             <FormControl>
               <FormControl.Label>Password</FormControl.Label>
-              <Input
+              <InputPassword
                 enablesReturnKeyAutomatically
                 placeholder="Type your password"
                 ref={refPasswordInput}
                 returnKeyType="go"
-                rightElement={
-                  <IconButton
-                    borderRadius="full"
-                    colorScheme="blueGray"
-                    icon={<Icons.Eye closed={showPassword} color="blueGray.500" size={6} />}
-                    onPress={toggleShowPassword}
-                  />
-                }
-                type={showPassword ? 'text' : 'password'}
                 variant="filled"
               />
             </FormControl>
