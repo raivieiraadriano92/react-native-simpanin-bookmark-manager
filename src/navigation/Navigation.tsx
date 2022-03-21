@@ -5,12 +5,13 @@ import { StatusBar } from 'expo-status-bar'
 import { useColorMode } from 'native-base'
 
 import { AuthStackNavigator } from './AuthStackNavigator'
+import { linking } from './linking'
 
 export const Navigation: FunctionComponent = () => {
   const colorMode = useColorMode()
 
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking}>
       <StatusBar style={colorMode.colorMode === 'dark' ? 'light' : 'dark'} />
       <AuthStackNavigator />
     </NavigationContainer>
