@@ -1,11 +1,31 @@
 import { useCallback, useRef } from 'react'
 
-import { Button, FormControl, Heading, Input, ScrollView, Text, VStack } from 'native-base'
+import { Button, FormControl, Heading, Input, ScrollView, Text, Toast, VStack } from 'native-base'
+import { useForm, Controller } from 'react-hook-form'
 import { TextInput } from 'react-native'
 import { InputPassword } from 'src/components'
 import { AuthStackScreenComponent } from 'src/navigation'
+import { supabase } from 'src/services/supabase'
 
-export const RegisterScreen: AuthStackScreenComponent<'Register'> = ({ navigation }) => {
+type FormData = {
+  email: string
+  full_name: string
+  password: string
+}
+
+export const RegisterScreen: AuthStackScreenComponent<'Register'> = () => {
+  const {
+    control,
+    handleSubmit,
+    formState: { isSubmitting }
+  } = useForm<FormData>({
+    defaultValues: {
+      email: 'raivieiraadriano92@gmail.com',
+      full_name: 'Raí Adriano',
+      password: '12345678'
+    }
+  })
+
   const refEmailInput = useRef<TextInput>()
 
   const refPasswordInput = useRef<TextInput>(null)
@@ -14,7 +34,25 @@ export const RegisterScreen: AuthStackScreenComponent<'Register'> = ({ navigatio
 
   const focusPasswordInput = useCallback(() => refPasswordInput.current?.focus(), [])
 
-  const onSubmit = useCallback(() => {}, [])
+  const submit = handleSubmit(
+    useCallback(async ({ email, full_name, password }) => {
+      const { error } = await supabase.auth.signUp(
+        {
+          email,
+          password
+        },
+        { data: { full_name } }
+      )
+
+      if (error) {
+        Toast.show({
+          title: 'Something went wrong',
+          status: 'error',
+          description: error.message
+        })
+      }
+    }, [])
+  )
 
   return (
     <ScrollView _contentContainerStyle={{ flexGrow: 1, p: 6 }}>
@@ -29,46 +67,96 @@ export const RegisterScreen: AuthStackScreenComponent<'Register'> = ({ navigatio
         </VStack>
         <VStack flex={1} justifyContent="flex-end" space={10}>
           <VStack space={4}>
-            <FormControl>
-              <FormControl.Label>Full name</FormControl.Label>
-              <Input
-                autoCapitalize="words"
-                enablesReturnKeyAutomatically
-                onSubmitEditing={focusEmailInput}
-                placeholder="Type your name"
-                returnKeyType="next"
-                variant="filled"
-              />
-            </FormControl>
-            <FormControl>
-              <FormControl.Label>Email</FormControl.Label>
-              <Input
-                autoCapitalize="none"
-                autoCorrect={false}
-                enablesReturnKeyAutomatically
-                keyboardType="email-address"
-                onSubmitEditing={focusPasswordInput}
-                placeholder="Type your email"
-                ref={refEmailInput}
-                returnKeyType="next"
-                variant="filled"
-              />
-            </FormControl>
-            <FormControl>
-              <FormControl.Label>Password</FormControl.Label>
-              <InputPassword
-                enablesReturnKeyAutomatically
-                placeholder="Type your password"
-                ref={refPasswordInput}
-                returnKeyType="go"
-                variant="filled"
-              />
-            </FormControl>
+            <Controller
+              control={control}
+              rules={{
+                required: 'Required field'
+              }}
+              render={({
+                field: { onChange: onChangeText, onBlur, value },
+                formState: { errors }
+              }) => (
+                <FormControl isInvalid={!!errors.full_name} isRequired>
+                  <FormControl.Label>Full name</FormControl.Label>
+                  <Input
+                    {...{ onChangeText, onBlur, value }}
+                    autoCapitalize="words"
+                    enablesReturnKeyAutomatically
+                    onSubmitEditing={focusEmailInput}
+                    placeholder="Type your name"
+                    returnKeyType="next"
+                    variant="filled"
+                  />
+                  {!!errors.full_name && (
+                    <FormControl.ErrorMessage>{errors.full_name?.message}</FormControl.ErrorMessage>
+                  )}
+                </FormControl>
+              )}
+              name="full_name"
+            />
+            <Controller
+              control={control}
+              rules={{
+                required: 'Required field'
+              }}
+              render={({
+                field: { onChange: onChangeText, onBlur, value },
+                formState: { errors }
+              }) => (
+                <FormControl isInvalid={!!errors.email} isRequired>
+                  <FormControl.Label>Email</FormControl.Label>
+                  <Input
+                    {...{ onChangeText, onBlur, value }}
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    enablesReturnKeyAutomatically
+                    keyboardType="email-address"
+                    onSubmitEditing={focusPasswordInput}
+                    placeholder="Type your email"
+                    ref={refEmailInput}
+                    returnKeyType="next"
+                    variant="filled"
+                  />
+                  {!!errors.email && (
+                    <FormControl.ErrorMessage>{errors.email?.message}</FormControl.ErrorMessage>
+                  )}
+                </FormControl>
+              )}
+              name="email"
+            />
+            <Controller
+              control={control}
+              rules={{
+                required: 'Required field'
+              }}
+              render={({
+                field: { onChange: onChangeText, onBlur, value },
+                formState: { errors }
+              }) => (
+                <FormControl isInvalid={!!errors.password} isRequired>
+                  <FormControl.Label>Password</FormControl.Label>
+                  <InputPassword
+                    {...{ onChangeText, onBlur, value }}
+                    enablesReturnKeyAutomatically
+                    placeholder="Type your password"
+                    ref={refPasswordInput}
+                    returnKeyType="go"
+                    variant="filled"
+                  />
+                  {!!errors.password && (
+                    <FormControl.ErrorMessage>{errors.password?.message}</FormControl.ErrorMessage>
+                  )}
+                </FormControl>
+              )}
+              name="password"
+            />
             <Text fontSize="sm" fontWeight="normal" lineHeight="lg" _light={{ opacity: 0.6 }}>
               By pressing “Register Now” button you agree to our Terms of Use and Privacy Policy.
             </Text>
           </VStack>
-          <Button onPress={onSubmit}>Register Now</Button>
+          <Button isLoading={isSubmitting} onPress={submit}>
+            Register Now
+          </Button>
         </VStack>
       </VStack>
     </ScrollView>
