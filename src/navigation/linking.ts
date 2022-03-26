@@ -1,9 +1,9 @@
 import { LinkingOptions } from '@react-navigation/native'
 import * as Linking from 'expo-linking'
 
-import { AuthStackParamList } from './types'
+import { RootStackParamList } from './types'
 
-export const linking: LinkingOptions<AuthStackParamList> = {
+export const linking: LinkingOptions<RootStackParamList> = {
   config: {
     initialRouteName: 'Onboarding',
     screens: {

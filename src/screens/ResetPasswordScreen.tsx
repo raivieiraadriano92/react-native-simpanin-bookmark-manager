@@ -1,9 +1,9 @@
 import { useCallback } from 'react'
 
 import { Button, FormControl, Heading, Input, ScrollView, Text, VStack } from 'native-base'
-import { AuthStackScreenComponent } from 'src/navigation'
+import { RootStackScreenComponent } from 'src/navigation'
 
-export const ResetPasswordScreen: AuthStackScreenComponent<'ResetPassword'> = ({ navigation }) => {
+export const ResetPasswordScreen: RootStackScreenComponent<'ResetPassword'> = ({ navigation }) => {
   const onSubmit = useCallback(() => {
     navigation.navigate('ResetPasswordConfirmation')
   }, [navigation])

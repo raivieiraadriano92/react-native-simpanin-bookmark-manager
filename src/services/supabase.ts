@@ -14,11 +14,7 @@ export const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPAB
   localStorage: {
     getItem: SecureStore.getItemAsync,
     removeItem: SecureStore.deleteItemAsync,
-    setItem: (key, value) => {
-      console.log(key)
-
-      console.log(value)
-    }
+    setItem: SecureStore.setItemAsync
   },
   detectSessionInUrl: false // Prevents Supabase from evaluating window.location.href, breaking mobile
 })

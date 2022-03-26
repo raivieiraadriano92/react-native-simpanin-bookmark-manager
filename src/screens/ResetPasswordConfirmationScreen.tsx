@@ -1,7 +1,7 @@
 import { Button, Center, Heading, Image, Text, VStack } from 'native-base'
-import { AuthStackScreenComponent } from 'src/navigation'
+import { RootStackScreenComponent } from 'src/navigation'
 
-export const ResetPasswordConfirmationScreen: AuthStackScreenComponent<
+export const ResetPasswordConfirmationScreen: RootStackScreenComponent<
   'ResetPasswordConfirmation'
 > = ({ navigation }) => (
   <VStack flex={1} p={6} safeArea space={10}>

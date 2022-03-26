@@ -3,9 +3,9 @@ import { useCallback, useRef } from 'react'
 import { Button, FormControl, Heading, ScrollView, Text, VStack } from 'native-base'
 import { TextInput } from 'react-native'
 import { InputPassword } from 'src/components'
-import { AuthStackScreenComponent } from 'src/navigation'
+import { RootStackScreenComponent } from 'src/navigation'
 
-export const NewPasswordScreen: AuthStackScreenComponent<'NewPassword'> = ({ navigation }) => {
+export const NewPasswordScreen: RootStackScreenComponent<'NewPassword'> = ({ navigation }) => {
   const refConfirmPasswordInput = useRef<TextInput>(null)
 
   const focusConfirmPasswordInput = useCallback(() => refConfirmPasswordInput.current?.focus(), [])

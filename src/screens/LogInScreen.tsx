@@ -4,7 +4,7 @@ import { Button, FormControl, Heading, Input, ScrollView, Text, Toast, VStack } 
 import { useForm, Controller } from 'react-hook-form'
 import { TextInput } from 'react-native'
 import { InputPassword } from 'src/components'
-import { AuthStackScreenComponent } from 'src/navigation'
+import { RootStackScreenComponent } from 'src/navigation'
 import { supabase } from 'src/services/supabase'
 
 type FormData = {
@@ -12,7 +12,7 @@ type FormData = {
   password: string
 }
 
-export const LogInScreen: AuthStackScreenComponent<'LogIn'> = ({ navigation }) => {
+export const LogInScreen: RootStackScreenComponent<'LogIn'> = ({ navigation }) => {
   const {
     control,
     handleSubmit,

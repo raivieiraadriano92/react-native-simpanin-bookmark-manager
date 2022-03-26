@@ -1,13 +1,13 @@
-export { HomeScreen } from './app/HomeScreen'
+export { HomeScreen } from './HomeScreen'
 
-export { LogInScreen } from './auth/LogInScreen'
+export { LogInScreen } from './LogInScreen'
 
-export { OnboardingScreen } from './auth/OnboardingScreen'
+export { OnboardingScreen } from './OnboardingScreen'
 
-export { NewPasswordScreen } from './auth/NewPasswordScreen'
+export { NewPasswordScreen } from './NewPasswordScreen'
 
-export { RegisterScreen } from './auth/RegisterScreen'
+export { RegisterScreen } from './RegisterScreen'
 
-export { ResetPasswordScreen } from './auth/ResetPasswordScreen'
+export { ResetPasswordScreen } from './ResetPasswordScreen'
 
-export { ResetPasswordConfirmationScreen } from './auth/ResetPasswordConfirmationScreen'
+export { ResetPasswordConfirmationScreen } from './ResetPasswordConfirmationScreen'

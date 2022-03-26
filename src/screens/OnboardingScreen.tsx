@@ -21,7 +21,7 @@ import Animated, {
   useSharedValue
 } from 'react-native-reanimated'
 import Svg, { Path } from 'react-native-svg'
-import { AuthStackScreenComponent } from 'src/navigation'
+import { RootStackScreenComponent } from 'src/navigation'
 
 type AnimatedDotProps = {
   index: number
@@ -127,7 +127,7 @@ const SlideItem: FunctionComponent<Slide> = ({ description, image, title }) => (
   </VStack>
 )
 
-export const OnboardingScreen: AuthStackScreenComponent<'Onboarding'> = ({ navigation }) => {
+export const OnboardingScreen: RootStackScreenComponent<'Onboarding'> = ({ navigation }) => {
   const colorMode = useColorMode()
 
   const goTo = useMemo(
