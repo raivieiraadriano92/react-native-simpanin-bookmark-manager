@@ -6,7 +6,9 @@ export type RootStackParamList = {
   Home: undefined
   LogIn: undefined
   Onboarding: undefined
-  NewPassword: undefined
+  NewPassword: {
+    token: string
+  }
   Register: undefined
   ResetPassword: undefined
   ResetPasswordConfirmation: undefined

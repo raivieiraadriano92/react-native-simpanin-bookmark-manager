@@ -138,6 +138,7 @@ export const RegisterScreen: RootStackScreenComponent<'Register'> = () => {
                   <InputPassword
                     {...{ onChangeText, onBlur, value }}
                     enablesReturnKeyAutomatically
+                    onSubmitEditing={submit}
                     placeholder="Type your password"
                     ref={refPasswordInput}
                     returnKeyType="go"

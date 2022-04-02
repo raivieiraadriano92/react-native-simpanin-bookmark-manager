@@ -109,6 +109,7 @@ export const LogInScreen: RootStackScreenComponent<'LogIn'> = ({ navigation }) =
                   <InputPassword
                     {...{ onChangeText, onBlur, value }}
                     enablesReturnKeyAutomatically
+                    onSubmitEditing={submit}
                     placeholder="Type your password"
                     ref={refPasswordInput}
                     returnKeyType="go"
