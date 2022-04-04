@@ -1,5 +1,7 @@
 export { Bookmark, BookmarkItem } from './BookmarkItem'
 
+export { Collection, CollectionItem } from './CollectionItem'
+
 export { default as Icons } from './Icons'
 
 export { InputPassword } from './InputPassword'
