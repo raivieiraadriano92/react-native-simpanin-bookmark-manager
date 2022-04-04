@@ -6,6 +6,8 @@ import { FormControlLabel } from './components/form-control'
 import { Heading } from './components/heading'
 import { Input } from './components/input'
 import { Text } from './components/text'
+import { sizes } from './sizes'
+import { spacing } from './space'
 import { typography } from './typography'
 
 export const theme = extendTheme({
@@ -15,6 +17,8 @@ export const theme = extendTheme({
     useSystemColorMode: false,
     initialColorMode: 'dark'
   },
+  sizes,
+  space: spacing,
   ...typography
 })
 
