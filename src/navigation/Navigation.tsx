@@ -55,7 +55,11 @@ export const Navigation: FunctionComponent = () => {
         }}>
         {session ? (
           <>
-            <NativeStackNavigator.Screen component={HomeScreen} name="Home" />
+            <NativeStackNavigator.Screen
+              component={HomeScreen}
+              name="Home"
+              options={{ headerShown: false }}
+            />
           </>
         ) : (
           <>
