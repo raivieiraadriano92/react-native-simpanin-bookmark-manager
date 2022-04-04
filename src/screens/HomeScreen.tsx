@@ -6,7 +6,9 @@ import {
   CollectionItem,
   Icons,
   Shortcut,
-  ShortcutItem
+  ShortcutItem,
+  Tabbar,
+  TABBAR_HEIGHT_TOKEN
 } from 'src/components'
 import { RootStackScreenComponent } from 'src/navigation'
 
@@ -107,58 +109,61 @@ const shortcuts: Shortcut[] = [
 
 export const HomeScreen: RootStackScreenComponent<'Home'> = ({ navigation }) => {
   return (
-    <ScrollView showsVerticalScrollIndicator={false} _contentContainerStyle={{ flexGrow: 1 }}>
-      <VStack flex={1} py={6} safeArea space={8}>
-        <VStack px={6} space={8}>
-          <Heading fontSize="2xl" fontWeight="semibold" lineHeight="md">
-            Hello, John Doe!
-          </Heading>
-          <Input
-            autoCapitalize="none"
-            autoCorrect={false}
-            enablesReturnKeyAutomatically
-            leftElement={<Icons.Search color="blueGray.500" ml={3} size={6} />}
-            placeholder="Search your bookmark"
-            returnKeyType="search"
-            variant="filled"
-          />
-        </VStack>
-        <VStack space={8}>
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            _contentContainerStyle={{ px: 6 }}>
-            <HStack space={4}>
-              {shortcuts.map((item) => (
-                <ShortcutItem {...item} key={item.title} onPress={() => {}} />
-              ))}
-            </HStack>
-          </ScrollView>
-          <VStack space={4}>
-            <Heading fontSize="lg" fontWeight="semibold" lineHeight="md" ml={6}>
-              My Collections
+    <>
+      <ScrollView showsVerticalScrollIndicator={false} _contentContainerStyle={{ flexGrow: 1 }}>
+        <VStack flex={1} pb={(TABBAR_HEIGHT_TOKEN + 6) * 4} pt={6} safeArea space={8}>
+          <VStack px={6} space={8}>
+            <Heading fontSize="2xl" fontWeight="semibold" lineHeight="md">
+              Hello, John Doe!
             </Heading>
+            <Input
+              autoCapitalize="none"
+              autoCorrect={false}
+              enablesReturnKeyAutomatically
+              leftElement={<Icons.Search color="blueGray.500" ml={3} size={6} />}
+              placeholder="Search your bookmark"
+              returnKeyType="search"
+              variant="filled"
+            />
+          </VStack>
+          <VStack space={8}>
             <ScrollView
               horizontal
               showsHorizontalScrollIndicator={false}
               _contentContainerStyle={{ px: 6 }}>
               <HStack space={4}>
-                {collections.map((item) => (
-                  <CollectionItem {...item} key={item.title} onPress={() => {}} />
+                {shortcuts.map((item) => (
+                  <ShortcutItem {...item} key={item.title} onPress={() => {}} />
                 ))}
               </HStack>
             </ScrollView>
-          </VStack>
-          <VStack px={6} space={4}>
-            <Heading fontSize="lg" fontWeight="semibold" lineHeight="md">
-              Recent bookmark
-            </Heading>
-            {bookmarks.map((item, index) => (
-              <BookmarkItem {...{ ...item, index }} key={item.title} onPress={() => {}} />
-            ))}
+            <VStack space={4}>
+              <Heading fontSize="lg" fontWeight="semibold" lineHeight="md" ml={6}>
+                My Collections
+              </Heading>
+              <ScrollView
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                _contentContainerStyle={{ px: 6 }}>
+                <HStack space={4}>
+                  {collections.map((item) => (
+                    <CollectionItem {...item} key={item.title} onPress={() => {}} />
+                  ))}
+                </HStack>
+              </ScrollView>
+            </VStack>
+            <VStack px={6} space={4}>
+              <Heading fontSize="lg" fontWeight="semibold" lineHeight="md">
+                Recent bookmark
+              </Heading>
+              {bookmarks.map((item, index) => (
+                <BookmarkItem {...{ ...item, index }} key={item.title} onPress={() => {}} />
+              ))}
+            </VStack>
           </VStack>
         </VStack>
-      </VStack>
-    </ScrollView>
+      </ScrollView>
+      <Tabbar />
+    </>
   )
 }
