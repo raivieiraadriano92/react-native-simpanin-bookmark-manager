@@ -1,4 +1,5 @@
 import { extendTheme } from 'native-base'
+import { Platform } from 'react-native'
 
 import { colors } from './colors'
 import { Button } from './components/button'
@@ -15,7 +16,7 @@ export const theme = extendTheme({
   components: { Button, FormControlLabel, Heading, Input, Text },
   config: {
     useSystemColorMode: false,
-    initialColorMode: 'dark'
+    initialColorMode: Platform.OS === 'ios' ? 'dark' : 'light'
   },
   sizes,
   space: spacing,
